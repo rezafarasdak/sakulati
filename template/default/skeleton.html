@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>        
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />    
+    <!--[if gt IE 8]>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />        
+    <![endif]-->                
+    <title>{title} Sakulati</title>
+    
+    <link href="css/stylesheets.css" rel="stylesheet" type="text/css" />
+    
+    <!--[if lte IE 7]>
+        <script type='text/javascript' src='js/other/lte-ie7.js'></script>
+    <![endif]-->    
+    
+    <script type='text/javascript' src='js/jquery/jquery.min.js'></script>
+    <script type='text/javascript' src='js/jquery/jquery-ui-1.10.4.custom.min.js'></script>
+    <script type='text/javascript' src='js/jquery/jquery-migrate.min.js'></script>
+    <script type='text/javascript' src='js/jquery/globalize.js'></script>
+    
+<!--    <script type='text/javascript' src='js/bootstrap/bootstrap.min.js'></script>    -->
+    <script type='text/javascript' src='js/cookies/jquery.cookies.2.2.0.min.js'></script>
+    
+    <script type='text/javascript' src='js/datatables/jquery.dataTables.min.js'></script>
+    <script type='text/javascript' src='js/scrollup/jquery.scrollUp.min.js'></script>
+    <script type='text/javascript' src='js/validationengine/languages/jquery.validationEngine-en.js'></script>
+    <script type='text/javascript' src='js/validationengine/jquery.validationEngine.min.js'></script>
+    
+    <script type='text/javascript' src='js/plugins.js'></script>    
+    <script type='text/javascript' src='js/actions.js'></script>
+	<script type='text/javascript' src='js/custom.js'></script>
+
+    <script type='text/javascript' src='js/numberFormat/numeral.js'></script>
+    
+</head>
+<body>    
+    
+    <div id="wrapper" class="">
+        
+        <div id="header">
+            
+            <div class="wrap">
+                
+                <a href="index.php" class="logo"></a>
+                
+                <div class="buttons fl">
+                    <div class="item">
+                        <a href="#" class="btn btn-primary btn-sm c_layout">
+                            <span class="i-layout-8"></span>                            
+                        </a>
+                    </div>
+                    <div class="item">
+                        <a href="#" class="btn btn-primary btn-sm c_screen">
+                            <span class="i-stretch"></span>                            
+                        </a>
+                    </div>   
+                    <div class="item">
+                        <a href="#" class="btn btn-primary btn-sm">
+                            <span class="i-cog"></span>
+                        </a>
+                        <div class="popup">
+                            <div class="head">
+                                <h2>Settings</h2>
+                            </div>
+                            <div class="content np">      
+                                <div class="row">
+                                    <div class="controls-row">
+                                        <div class="col-md-3">Themes:</div>
+                                        <div class="col-md-9 themes">
+                                            <a href="#" class="default tip" data-theme="" title="Default"></a>
+                                            <a href="#" class="dark tip" data-theme="themeDark" title="Dark"></a>
+                                            <a href="#" class="simple tip" data-theme="themeSimple" title="Simple"></a>
+                                            <div class="help-block">On click theme will changed and saved settings</div>
+                                        </div>
+                                    </div>               
+                                    <div class="controls-row">
+                                        <div class="col-md-3">Backgrounds:</div>
+                                        <div class="col-md-9 backgrounds">
+                                            <a href="#" class="default tip" data-theme="" title="Default"></a>                                            
+                                            <a href="#" class="b_bcrosshatch" data-back="b_bcrosshatch"></a>
+                                            <a href="#" class="b_crosshatch" data-back="b_crosshatch"></a>
+                                            <a href="#" class="b_cube" data-back="b_cube"></a>
+                                            <a href="#" class="b_dots" data-back="b_dots"></a>
+                                            <a href="#" class="b_grid" data-back="b_grid"></a>
+                                            <a href="#" class="b_hline" data-back="b_hline"></a>
+                                            <a href="#" class="b_simple" data-back="b_simple"></a>
+                                            <a href="#" class="b_vline" data-back="b_vline"></a>
+                                            <div class="help-block">On click background will changed and saved settings</div>
+                                        </div>
+                                    </div>                                    
+                                </div>
+                            </div>
+                            <div class="footer">
+                                <div class="side fr">
+                                    <button class="btn btn-primary popup-close">Close</button>
+                                </div>                                
+                            </div>
+                        </div>                        
+                    </div>                 
+                </div>
+                
+            </div>
+            
+        </div>
+        
+        <div id="layout">
+        
+            <div id="sidebar">
+
+				<!-- BEGIN LoggedOn -->
+                
+                <div class="user">
+                    <div class="pic">
+                        <img src="img/examples/users/user.jpg"/>
+                    </div>
+                    <div class="info">
+                        <div class="name">
+                            <a href="#">{user login}</a>
+                        </div>
+                        <div class="buttons">
+                            <a href="#"><span class="{login setting css}"></span>{login setting title}</a>
+                            <a href="{login action}" class="fr"><span class="i-forward"></span> {login action title}</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- END LoggedOn -->
+
+                <ul class="navigation">
+
+                    <li>
+                        <a href="index.php">Dashboard</a>
+                    </li>
+
+                <!-- BEGIN blok_kiri -->
+                {block content}
+	            <!-- END blok_kiri -->
+                
+                    
+                </ul>
+
+            </div>
+
+            <div id="content">                        
+                <div class="wrap">
+                    
+                    <div class="head">
+                        <div class="info">
+                        	<h1>{header muatan}</h1>
+                            <ul class="breadcrumb">
+                                <li><a href="#">&nbsp;</a></li>
+                            </ul>
+                        </div>
+                    </div>                                                                    
+                    
+                    <div class="container">
+
+						{muatan}
+                        
+
+
+
+					<!-- FOOTER -->
+                        <div class="row">
+                            <div class="block">
+                                <div class="head">
+                                    <div class="side fl">
+                                        Agriculture System 1.0 &copy; Copyright SAKULATI 2016, {tanggal sistem}
+                                    </div>
+                                </div>
+                            </div>                                
+                        </div>                        
+					<!-- /FOOTER -->
+
+                    </div>
+                        
+                </div>
+            </div>
+            
+        </div>
+
+    </div>
+    
+</body>
+</html>
+<!-- BEGIN left_block_header -->
+&nbsp;                
+<!-- END left_block_header -->

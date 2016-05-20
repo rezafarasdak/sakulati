@@ -1,0 +1,29 @@
+[2016-05-20 20:16:21 741] [admin] [Home Page] Login from [admin Success..
+[2016-05-20 20:16:21 820] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-20 20:16:21 977] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-20 20:17:12 100] [admin] [lahan] Opening Index
+[2016-05-20 20:17:12 100] [admin] [lahan] Query [select * from lahan  order by name]
+[2016-05-20 20:17:16 633] [admin] [lahan] Opening Index
+[2016-05-20 20:17:16 633] [admin] [lahan] Query [select * from lahan  order by name]
+[2016-05-20 20:18:58 488] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-20 20:19:35 970] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-20 20:47:23 46] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-20 20:47:38 195] [admin] [admin] Opening Index User
+[2016-05-20 20:47:38 195] [admin] [admin] Opening List User
+[2016-05-20 20:47:41 588] [admin] [lahan] Opening Index
+[2016-05-20 20:47:41 588] [admin] [lahan] Query [select * from lahan  order by name]
+[2016-05-20 20:47:44 505] [admin] [lahan] Opening Edit Form
+[2016-05-20 20:47:44 505] [admin] [lahan] Query [select * from lahan where id = '1' limit 1]
+[2016-05-20 20:47:46 658] [admin] [lahan] Opening Index
+[2016-05-20 20:47:46 658] [admin] [lahan] Query [select * from lahan  order by name]
+[2016-05-20 20:48:01 735] [admin] [lahan] Opening Edit Form
+[2016-05-20 20:48:01 735] [admin] [lahan] Query [select * from lahan where id = '8' limit 1]
+[2016-05-20 20:48:05 465] [admin] [lahan] Updating..
+[2016-05-20 20:48:05 466] [admin] [lahan] Query [update lahan set name = 'palujauclus2', remark = 'Ok' where id = 8]
+[2016-05-20 20:48:05 466] [admin] [lahan] Update Management Lahan Fail, Error Code 1001 
+[2016-05-20 20:48:05 605] [admin] [lahan] Opening Index
+[2016-05-20 20:48:05 605] [admin] [lahan] Query [select * from lahan  order by name]
+[2016-05-20 20:49:13 793] [admin] [lahan] Opening Index
+[2016-05-20 20:49:13 793] [admin] [lahan] Query [select * from lahan  order by name]
+[2016-05-20 20:52:02 742] [admin] [cluster] Opening Index
+[2016-05-20 20:52:02 742] [admin] [cluster] Query [select * from cart_of_account_middle  order by name]

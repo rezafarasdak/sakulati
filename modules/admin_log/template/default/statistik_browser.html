@@ -1,0 +1,31 @@
+<p align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>{MESSAGE}</b></font></p>
+<br />
+<table class="adminlist" border="1" style="border-collapse:collapse" align="left" width="100%">
+	
+
+<table class="adminlist" border="1" style="border-collapse:collapse" align="left" width="320" height="400">
+  <tr> 
+    <th class="title" bgcolor="#999999" align="center" width="10%"><div align="left"><b>No</b></div></th>
+    <th class="title" bgcolor="#999999" align="center"><div align="left"><b>Browser</b></div></th>
+    <th class="title" bgcolor="#999999" width="15%" align="center"><div align="center"><b> Jumlah </b></div></th>
+  </tr>
+  <!-- BEGIN elemen -->
+  <tr class="{row}">
+    <td valign="top" width="10%">{nomor}</td>
+    <td valign="top">{browser_name} - {browser_platform}</td>
+    <td valign="top" align="center">{jumlah}</td>
+  </tr>
+  <!-- END elemen -->
+  <!-- BEGIN tidakada -->
+  <tr>
+    <td class="cari" colspan="5" valign="top" align="center"><b>Tidak ada entri yang ditemukan.</b> </td>
+  </tr>
+  <!-- END tidakada -->
+  <tr> 
+	<th class="title" bgcolor="#999999" align="center" colspan="2"><div align="left"><b>&nbsp; TOTAL &nbsp;</b></div></th>
+    <th class="title" bgcolor="#999999" width="15%" align="center"><div align="center"><b> {totalAll} </b></div></th>
+  </tr>
+</table>
+
+<!-- Graph -->
+{chart}

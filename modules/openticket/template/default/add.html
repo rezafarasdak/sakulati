@@ -1,0 +1,122 @@
+<script language="Javascript">
+
+function validateForm()
+{
+	var subject = document.openticket.subject.value;
+	var content = document.openticket.content.value;
+	var id_penerima = document.openticket.id_penerima.value;
+	var id_type = document.openticket.id_type.value;
+
+	if (subject == null || subject == ""){
+ 	    alert("Subject Tidak Boleh Kosong"); 
+		document.openticket.subject.focus();
+		return false;
+	}
+	
+	if (content == null || content == ""){
+ 	    alert("Isi Tidak Boleh Kosong"); 
+		document.openticket.tgl_sbp.focus();
+		return false;
+	}
+	
+/*	if (id_penerima == null || id_penerima == ""){
+ 	    alert("Tujuan Tidak Boleh Kosong"); 
+		document.openticket.tanggal_penindakan.focus();
+		return false;
+	}*/
+	
+	if (id_type == null || id_type == ""){
+ 	    alert("Type Tidak Boleh Kosong"); 
+		document.openticket.lokasi_penindakan.focus();
+		return false;
+	}
+	
+	
+	var r=confirm("Pastikan data yang di input sudah benar, apa anda yakin?","Ya");
+	if (r==true){
+		return true;
+	}else{
+    	return false;
+	}
+	
+	return false;
+}
+
+
+function publicStatus(){
+
+	var checkStatus = document.openticket.public.checked;
+	if(checkStatus == true){
+		document.openticket.id_penerima.disabled="disabled";
+		alert("Anda akan mengirim pesan ke semua user");
+	}else{
+		document.openticket.id_penerima.disabled="";
+	}
+}
+
+</script>
+
+	
+<form action="index.php?appid=openticket&sub=add" method="post" name="openticket" id="validate" onsubmit="return validateForm()">
+<input type="hidden" name="act" value="add" />
+
+<div class="row">
+	<div class="col-md-9">        
+        <div class="block">
+            <div class="head">
+                <h2>Tambah Ticket Baru</h2>
+            </div>
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Pengirim :</div>
+                    <div class="col-md-9">{pengirim}</div>
+                </div>                
+            </div>
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Tujuan :</div>
+                    <div class="col-md-9">
+                    <select name="id_penerima" class="validate[required] form-control">
+                        <option value="" selected="selected" > --- PILIH TUJUAN --- </option>
+                        {menu_penerima}
+                    </select>
+                    </div>
+                </div>                
+            </div>
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Type :</div>
+                    <div class="col-md-9">
+                    <select name="id_type" class="validate[required] form-control">
+                        <option value="l">Masalah Login</option>
+                        <option value="k">Koreksi Data</option>
+                        <option value="q" selected="selected">Pertanyaan</option>
+                        <option value="o">Lainnya</option>				
+                    </select>
+                    </div>
+                </div>                
+            </div>
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Subject :</div>
+                    <div class="col-md-9"><input type="text" class="form-control" name="subject" value=""/></div>
+                </div>                
+            </div>
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Isi :</div>
+                    <div class="col-md-9"><textarea name="content" cols="50" rows="6" class="form-control" ></textarea></div>
+                </div>                
+            </div>
+            <div class="footer">
+                <div class="side fr">
+                    <div class="btn-group">
+                        <button class="btn btn-primary" type="submit" id="submitHandling">Submit</button>
+                    </div>
+                </div>
+            </div>             
+		</div>
+	</div>
+</div>
+
+</form>

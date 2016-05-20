@@ -1,0 +1,257 @@
+<!-- BEGIN ada -->
+<form action="index.php?appid=penangkapan&sub=delete" method="post">
+<input type="hidden" name="id_delete" value="{no_kasus}">
+<input type="hidden" name="act" value="delete">
+
+        <table class="adminlist" width="99%" border="1" cellpadding="0" cellspacing="0" bordercolor="#CCCCCC" tyle="border-collapse:collapse">
+            <tr class="row1">
+             <td align="center" colspan="2">   <font face ="arial,helvetica" size="3" color="#000000"><b>!!! DELETE Penindakan !!!</b></font></td>
+            </tr>            
+            <tr valign="top">
+             <td>
+
+                <table border="0" cellpadding="0" cellspacing="0" bordercolor="#CCCCCC" width="100%">
+                 <tr class="row0">     
+                  <td>Kantor</td>
+                  <td width='15' valign='top'>:</td>
+                  <td width="300">
+                    {nama_kantor}
+                  </td>
+                 </tr>
+                 <!--
+                  <tr>
+                  <td width="200">No Surat Penindakan</td>
+                  <td width='15' valign='top'>:</td>
+                  <td width="300"><label>
+                    {nosbp}
+                  </label></td>
+                 </tr>
+                 -->
+                 <tr class="row1">
+                  <td>Tanggal Surat Penindakan</td>
+                  <td width='15' valign='top'>:</td>
+                  <td width="300"><label>
+                    {tgl_sbp}</span>
+                
+                  </label></td>
+                 </tr>                    
+                 <tr class="row0">
+                  <td>Tanggal Penindakan</td>
+                  <td width='15' valign='top'>:</td>
+                  <td><label>
+                    {tgl_penindakan}
+                  </label></td>
+                 </tr>
+                 <tr class="row0">
+                  <td>Sumber Informasi</td>
+                  <td width='15' valign='top'>:</td>
+                  <td><label>
+                    {sumberinfo}
+                  </label></td>
+                 </tr>
+                 <tr class="row1">
+                  <td>Lokasi Penindakan</td>
+                  <td width='15' valign='top'>:</td>
+                  <td><label>
+                    {lokasi}
+                  </label></td>
+                 </tr>
+                 <tr class="row0">
+                  <td>Penindak</td>
+                  <td width='15' valign='top'>:</td>
+                  <td width="300"><label>
+                 {penangkap}
+                  </label></td>
+                 </tr>
+                 <tr class="row1">
+                  <td>Pelaku</td>
+                  <td width='15' valign='top'>:</td>
+                  <td width="300"><label>
+                 {pelaku}
+                  </label></td>
+                 </tr>
+              
+                 <tr class="row0">
+                  <td valign="top">Ket Tindak Lanjut</td>
+                  <td width='15' valign='top'>:</td>
+                  <td width="300"><label>
+                    {ket}
+                  </label></td>
+                 </tr>
+                 <tr class="row1">
+                  <td valign="top">No LTP</td>
+                  <td width='15' valign='top'>:</td>
+                  <td width="300"><label>
+                    {no_ltp}
+                  </label></td>
+                 </tr>
+                 <tr class="row0">
+                  <td valign="top">Tgl LTP</td>
+                  <td width='15' valign='top'>:</td>
+                  <td width="300"><label>
+                    {tgl_ltp}
+                  </label></td>
+                 </tr>
+                 <tr class="row1">
+                  <td valign="top">NO LPHP</td>
+                  <td width='15' valign='top'>:</td>
+                  <td width="300"><label>
+                    {no_lphp}
+                  </label></td>
+                 </tr>
+                 <tr class="row0">
+                  <td valign="top">Tgl LPHP</td>
+                  <td width='15' valign='top'>:</td>
+                  <td width="300"><label>
+                    {tgl_lphp}
+                  </label></td>
+                 </tr>                                                  
+                </table>
+
+            </td>
+            <td>
+                <table border="0" cellpadding="0" cellspacing="0" bordercolor="#CCCCCC" width="100%">
+
+                 <tr class="row1">
+                  <td>Pasal</td>
+                  <td width='15' valign='top'>:</td>
+                  <td width="300"><label>
+                    {pasal}
+                  </label></td>
+                 </tr>
+                 <tr class="row0">
+                  <td>Kasus</td>
+                  <td width='15' valign='top'>:</td>
+                  <td width="300"><label>
+                    {masterKasus} - {jenis_kasus}
+                  </label></td>
+                 </tr>
+                 <tr class="row1">
+                  <td valign="top">Jenis</td>
+                  <td width='15' valign='top'>:</td>
+                  <td width="300"><label>
+                    {detailPasal}
+                  </label></td>
+                 </tr>
+                <!-- 
+                 <tr class="row0">
+                  <td width="200">Kode Pasal</td>
+                  <td width='15' valign='top'>:</td>
+                  <td width="300"><label>
+                    {kd_pasal}
+                  </label></td>
+                 </tr>
+                 -->
+                 <tr class="row0">
+                  <td valign="top">Uraian Modus</td>
+                  <td width='15' valign='top'>:</td>
+                  <td width="300"><label>
+                    {uraian_modus} 
+                   </label></td>
+                 </tr>
+                 <tr class="row1">
+                  <td>Perkiraan Nilai Barang</td>
+                  <td width='15' valign='top'>:</td>
+                  <td width="300"><label>
+                    {perkiraan_nil_bar}
+                  </label></td>
+                 </tr>
+                 <tr class="row0">
+                  <td>Potensi Kerugian Negara</td>
+                  <td width='15' valign='top'>:</td>
+                  <td width="300"><label>
+                    {potensi_kur_bar}
+                  </label></td>
+                 </tr>
+<!--                 <tr class="row1">
+                  <td>Tindakan</td>
+                  <td width='15' valign='top'>:</td>
+                  <td width="300"><label>
+                    {tindakan}
+                  </label></td>
+                 </tr>
+                 <tr class="row0">
+                  <td>Terhadap</td>
+                  <td width='15' valign='top'>:</td>
+                  <td width="300"><label>
+                    {terhadap}
+                  </label></td>
+                 </tr>
+-->                 <tr class="row1">
+                  <td>Ket. Tindakan</td>
+                  <td width='15' valign='top'>:</td>
+                  <td width="300"><label>
+                    {ket_tindakan}
+                  </label></td>
+                 </tr>
+                 <tr class="row0">
+                  <td valign="top">NO LPTP</td>
+                  <td width='15' valign='top'>:</td>
+                  <td width="300"><label>
+                    {no_lptp}
+                  </label></td>
+                 </tr>
+                 <tr class="row1">
+                  <td valign="top">Tgl LPTP</td>
+                  <td width='15' valign='top'>:</td>
+                  <td width="300"><label>
+                    {tgl_lptp}
+                  </label></td>
+                 </tr>                                                  
+                                                  
+	            </table>
+            </td>
+                
+           </tr>
+	<!-- END ada -->
+            
+            <!--=============================URAIAN BARANG====================================================-->
+            <tr>
+             <td align="center" colspan="2"><b>URAIAN BARANG</b></td>
+            </tr>            
+            <tr valign="top">
+             <td colspan="2">
+              <table width="100%" border="1" cellpadding="1" cellspacing="1" bordercolor="#CCCCCC">
+				  <tr class="{row}">
+				    <td valign="top">No</td>
+				    <td valign="top">Komoditi</td>
+				    <td valign="top">Jumlah</td>
+				    <td valign="top">Kemasan</td>
+				    <td valign="top">Uraian</td>
+				  </tr>
+				  <!-- BEGIN uraian_ada -->
+				  <tr class="{row}">
+				    <td valign="top">{no}</td>
+				    <td valign="top">{kd_kom}</td>
+				    <td valign="top">{jumlah}</td>
+				    <td valign="top">{kemasan}</td>
+				    <td valign="top">{uraian_detail}</td>
+				  </tr>
+				  <!-- END uraian_ada -->
+				  <!-- BEGIN uraian_tidakada -->
+				  <tr>
+				    <td class="cari" colspan="5" valign="top" align="center"><b>Tidak ada entri yang ditemukan.</b> </td>
+				  </tr>
+				  <!-- END uraian_tidakada -->
+ 
+                   </table>
+                 </td>
+                 
+               </tr>
+                             
+                 <tr>
+                  <td colspan="2" align="center">
+                  Pastikan Data Yang Ingin Di Hapus Adalah Data Yang Benar <br />
+                   <input type="submit" value="Delete" id="submitHandling">
+                  </td>
+                 </tr>
+
+              </table>
+</form>
+<!-- BEGIN tidakada -->
+	
+    Data Tidak Di Temukan 
+    <br>
+    {MESSAGE}
+
+<!-- END tidakada -->

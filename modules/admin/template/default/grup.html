@@ -1,0 +1,193 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+
+            <!-- BEGIN nonform -->
+
+            <div class="block">
+                <div class="head">
+                    <h2>Administrasi Group User - Daftar User</h2>
+                    <ul class="buttons">
+                            <li><a href="index.php?appid={appid}&sub=grup&action=new"><span class="i-plus-2"> Tambah </span></a></li>
+                    </ul>  
+                </div>
+                <div class="content np table-sorting">
+                    <table class="simple_sort" cellpadding="0" cellspacing="0" width="100%">
+                    	<thead>
+                         <tr>
+                          <th>Nama</th>
+                          <th>Detail</th>
+                          <th>Action</th>
+                         </tr>
+                         </thead>
+                         <tbody>
+                        <!-- BEGIN elemen -->
+                         <tr>
+                          <td width="30%">
+                           <a href="index.php?appid=admin&sub=grup&action=detail&id={id}">{nama}</a>
+                          </td>
+                          <td width="40%">
+                           {detail}
+                          </td>
+                          <td width="15%" align="center">
+                          	<a href="index.php?appid={appid}&sub=grup&action=detail&id={id}"><i class="glyphicon glyphicon-search"></i></a>&nbsp;&nbsp;
+                           {linkEdit}
+                          </td>
+<!--                          <td width="15%" align="center">
+                           {linkDelete}
+                          </td>
+-->
+                         </tr>
+                        <!-- END elemen -->
+                        </tbody>
+                    </table>
+				</div>
+            </div>
+            <!-- END nonform -->
+            <!-- BEGIN form -->
+            <form action="index.php?appid=admin&sub=grup" method="post">
+            <input type="hidden" name="id" value="{id}">
+            <input type="hidden" name="actionPost" value="{action}">
+
+            <div class="block">
+                <div class="head">
+                    <h2>{action title} Group</h2>
+                </div>
+
+                <div class="content np">                                        
+                    <div class="controls-row">
+                        <div class="col-md-3">Nama Group :</div>
+                        <div class="col-md-9">
+                            <input type="text" name="nama" class="form-control" value="{nama}"/>
+                        </div>
+                    </div>                
+                 </div>
+                <div class="content np">                                        
+                    <div class="controls-row">
+                        <div class="col-md-3">Deskripsi :</div>
+                        <div class="col-md-9">
+                            <input type="text" name="desc" class="form-control" value="{desc}"/>
+                        </div>
+                    </div>                
+                 </div>
+                <div class="footer">
+                    <div class="side fr">
+                        <div class="btn-group">
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </div>                                    
+            </div>
+            </form>
+            <!-- END form -->
+            
+            <!-- BEGIN detail -->
+
+            <form action="index.php?appid=admin&sub=grup" method="post">
+            <input type="hidden" name="id" value="{id}">
+            <input type="hidden" name="actionPost" value="useradd"> 
+
+            <div class="block">
+                <div class="head">
+                    <h2>Management Hak Akses Group</h2>
+                </div>
+        
+                <div class="content np">                                        
+                    <div class="controls-row">
+                        <div class="col-md-3">Nama Grup :</div>
+                        <div class="col-md-9">{nama}</div>
+                    </div>                
+                 </div>
+
+                <div class="content np">                                        
+                    <div class="controls-row">
+                        <div class="col-md-3">Deskripsi :</div>
+                        <div class="col-md-9">{desc}</div>
+                    </div>                
+                 </div>
+
+                <div class="content np">                                        
+                    <div class="controls-row">
+                        <div class="col-md-3">User Yang Ada :</div>
+                        <div class="col-md-9"><select name="userid">{elemen_user}</select></div>
+                    </div>                
+                 </div>
+    
+                <div class="footer">
+                    <div class="side fr">
+                        <div class="btn-group">
+                            <button class="btn btn-primary" value="Tambah" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </div>                                    
+    
+            </div>
+            </form>
+                             
+
+
+            <h3> <a href="index.php?appid=admin&sub=grup"> Kembali Ke List Group </a></h3>
+
+
+            <div class="col-md-9">        
+                <div class="head">
+                    <h2>User yang terdaftar dengan Group <b> {nama} </b></h2>
+                </div>
+                
+                <div class="content np table-sorting">
+        
+                    <table class="simple_sort" cellpadding="0" cellspacing="0" width="100%">
+                    <thead>
+                     <tr>
+                      <th>Nama User</th>
+                      <th>Hapus</th>
+                     </tr>
+                    </thead>
+                    <tbody> 
+                    <!-- BEGIN elemen_member -->
+                     <tr>
+                      <td>{username}</td>
+                      <td>
+                       <a href="index.php?appid=admin&sub=grup&action=userdel&id={id}&userid={userid}"><i class="i-cancel-2"></i></a>
+                      </td>
+                     </tr>
+                    <!-- END elemen_member -->
+                    </tbody>
+                    </table>
+            	</div>
+            </div>
+            
+            
+            <div class="col-md-10">        
+            <br />
+                <div class="head">
+                    <h2>Menu yang terdaftar dengan Group <b> {nama} </b></h2>
+                </div>
+                
+                <div class="content np table-sorting">
+                    <table class="simple_sort" cellpadding="0" cellspacing="0" width="100%">
+                    <thead>
+                     <tr>
+                      <th>No</th>	
+                      <th>Nama Menu / Aplikasi</th>
+                     </tr>
+                     </thead>
+                     <tbody>
+                    <!-- BEGIN elemen_module -->
+                     <tr>
+                      <td>{no}</td>
+                      <td>{m_title}</td>
+                     </tr>
+                    <!-- END elemen_module -->
+                    </tbody>
+                    <!-- BEGIN no_elemen_module -->
+                        <tr> <td colspan="2"> Belum Ada Aplikasi Yang Bisa Di Akses</td> </tr>
+                    <!-- END no_elemen_module -->                
+                </table>
+                </div>
+              </div>  
+                <!-- END detail -->
+
+		</div>
+	</div>
+</div>

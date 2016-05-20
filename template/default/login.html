@@ -1,0 +1,35 @@
+<div class="row">
+	<div class="col-md-12">
+        <div class="block">
+            <div class="head">
+                <h2>Selamat Datang</h2>                                    
+                <ul class="buttons">                                        
+                    <li><a href="#" class="tip" title="Contact administrator"><i class="i-warning"></i></a></li>
+                    <li><a href="#" class="tip" title="Forget your password?"><i class="i-locked"></i></a></li>
+                </ul>                                     
+            </div>
+            <form action="index.php?login=continue" method="post" name="form1" id="validate">
+            <div class="content np">
+                <div class="controls-row">
+                    <div class="col-md-3">Login:</div>
+                    <div class="col-md-9"><input type="text" name="username" class="validate[required] form-control" value=""/></div>
+                </div>
+                <div class="controls-row">
+                    <div class="col-md-3">Password:</div>
+                    <div class="col-md-9"><input type="password" name="password" class="validate[required] form-control" value=""/></div>
+                </div>                                
+            </div>
+            <div class="footer">
+    
+                <div class="side fr">
+                    <button  class="btn btn-primary" id="submitHandling">Sign in</button>
+                </div>
+            </div>
+            </form>
+        </div>
+	</div>
+</div>
+
+<script language="Javascript">
+	document.form1.username.focus();
+</script>

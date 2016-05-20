@@ -1,0 +1,32 @@
+- copy project ke folder htdoc, ex semua tersimpan dalam folder "sakulati"
+- restore database, "sakulati"
+
+SETTING
+- buka file ../htdocs/sakulati/frw/conf/configsakulati.ini
+	- sesuaikan "path" dengan lokasi folder "frw", ex : "/var/www/html/sakulati/frw"
+	- sesuaikan setting database, username & password bila ada
+		[database]	--> tidak di ubah
+		host = localhost
+		username = root	 
+		password = 
+		name = sakulati
+		
+- buka table "sites" di database "sakulati"
+	- sesuaikan "path" dengan lokasi folder project, ex : "/var/www/html/sakulati"
+
+
+CREATE NEW MENU
+- buat folder di /htdocs/sakulati/modules/
+- buat record di System Management -> Menu 
+- Edit Menu, lalu assign ke group yang diperbolehkan mengakses menu ini.
+
+
+Konsep User Management 
+- 1 Menu, Bisa di assign ke banyak Group, di System Management -> Menu -> Edit
+	ex : Menu "Management Pohon" di assign ke Group Operator & Group Admin.
+- 1 User, Bisa di assign ke banyak Group, di System Management -> User -> Detail
+	ex : User "Operator_komang" di assign ke Group Operator & Group Investor (Biasanya hanya di assign ke 1 group saja)
+
+
+NB : 
+Bila muncul "false site", biasa nya setting username & password tidak benar

@@ -1,0 +1,48 @@
+<p align="center"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>{MESSAGE} ({countTrx} Data)</b></font></p>
+<p align="right"><font face="Verdana, Arial, Helvetica, sans-serif" size="2"><b>{linkAddTicket}</b></font></p>
+<table class="adminlist" border="1" width="100%" style="border-collapse:collapse">
+  <tr> 
+ <th class="title" bgcolor="#999999" align="center">
+ 	<b><a href="index.php?appid=openticket&order=ticket_number{searchVariable}">Ticket Number </a></b>
+    </th>
+    <th class="title" bgcolor="#999999" align="center"><div align="left">
+ <b><a href="index.php?appid=openticket&order=sender_user_id{searchVariable}">Pengirim</a></b></div>
+    </th>
+    <th class="title" bgcolor="#999999" align="center"><div align="left">
+ <b><a href="index.php?appid=openticket&order=receiver_user_id{searchVariable}">Penerima</a></b></div>
+    </th>
+    <th class="title" bgcolor="#999999" align="center"><div align="left">
+ <b><a href="index.php?appid=openticket&order=subject{searchVariable}">Subject</a></b></div>
+    </th>
+    <th class="title" bgcolor="#999999" align="center"><div align="left">
+ <b><a href="index.php?appid=openticket&order=status{searchVariable}">Status</a></b></div>
+    </th>
+    <th class="title" bgcolor="#999999" align="center"><div align="left">
+ <b><a href="index.php?appid=openticket&order=type{searchVariable}">Type</a></b></div>
+    </th>
+    <th class="title" bgcolor="#999999" width="11%" align="center"><div align="center"><b>Action</b></div></th>
+  </tr>
+  <!-- BEGIN elemen -->
+  <tr class="{row}" >
+    <td valign="top">{ticket_number}</td>
+    <td valign="top">{pengirim}</td>
+    <td valign="top">{penerima}</td>
+    <td valign="top">{subject}</td>
+    <td valign="top">{status}</td>
+    <td valign="top">{type}</td>
+<!--    <td  width="11%" valign="top" align="center"><div id="menu" style="float:left"><a href="index.php?appid=openticket&sub=detail&id={ticket_number}" title="{ticket_number}"> Show Detail </a> </div></td> -->
+    <td  width="11%" valign="top" align="center"><a href="index.php?appid=openticket&sub=detail&id={ticket_number}" title="{ticket_number}"> Show Detail </a></td>
+  </tr>
+	<div id="loading_data" style="display:none">Loading Data ...</div>
+  <tr id="container{ticket_number}" style="display:none">
+			  
+  </tr>
+  <!-- END elemen -->
+  <!-- BEGIN tidakada -->
+  <tr>
+    <td class="cari" colspan="7" valign="top" align="center"><b>Tidak ada entri yang ditemukan.</b> </td>
+  </tr>
+  <!-- END tidakada -->
+</table>
+
+<p class="cari" align="center">{paging}</p>

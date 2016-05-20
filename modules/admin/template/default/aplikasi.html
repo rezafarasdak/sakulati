@@ -1,0 +1,190 @@
+<div class="row">
+	<div class="col-md-12">
+
+<script language="javascript">
+function saveorder(){
+	document.formsave.submit();
+}
+</script>
+<!-- BEGIN nonform -->
+    <div class="block">
+        <div class="head">
+            <h2>Daftar Menu / Aplikasi</h2>
+            <ul class="buttons">
+                <li><a href="index.php?appid=admin&sub=aplikasi&action=new"><span class="i-plus-2"> Tambah data </span></a></li>
+            </ul>                                        
+        </div>
+        <div class="content np table-sorting">
+
+            <form name="formsave" action="index.php?appid=admin&sub=aplikasi&action=saveorder" method="post" >
+            <table class="simple_sort" cellpadding="0" cellspacing="0" width="100%">
+            <thead>
+                <tr>
+                    <th>No</th>
+                    <th>Judul</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <!-- BEGIN elemen -->
+             <tr class="{row}">
+              <td>{no}</td>
+              <td>{judul}</td>
+              <td align="center"><a href="index.php?appid=admin&sub=aplikasi&action=detail&id={id}"><i class="glyphicon glyphicon-pencil"></i></a></td>
+             </tr>
+            <!-- END elemen -->
+            </table>
+            </form>
+         </div>
+     </div>       
+
+<!-- END nonform -->
+<!-- BEGIN form -->
+<form action="index.php?appid=admin&sub=aplikasi" method="post">
+<input type="hidden" name="actionPost" value="{action}">
+<input type="hidden" name="id" value="{id}">
+<input type="hidden" name="mandatory" value="" {mandatory}>
+
+    <div class="block">
+        <div class="head">
+            <h2>{action title} Aplikasi</h2>
+        </div>
+
+        <div class="content np">                                        
+            <div class="controls-row">
+                <div class="col-md-3">ID/Nama Aplikasi :</div>
+                <div class="col-md-9">
+                    <input type="text" name="nama" class="form-control" value="{nama}"/>
+                </div>
+            </div>                
+         </div>
+        <div class="content np">                                        
+            <div class="controls-row">
+                <div class="col-md-3">Judul Aplikasi :</div>
+                <div class="col-md-9">
+                    <input type="text" name="judul" class="form-control" value="{judul}"/>
+                </div>
+            </div>                
+         </div>
+        <div class="content np">                                        
+            <div class="controls-row">
+                <div class="col-md-3">Akses Publik :</div>
+                <div class="col-md-9">
+                    <input type="checkbox" name="public" value="" {public}>
+                </div>
+            </div>                
+         </div>
+        <div class="content np">                                        
+            <div class="controls-row">
+                <div class="col-md-3">Tampil di menu :</div>
+                <div class="col-md-9">
+                     <input type="checkbox" name="visible" value="" {visible}>
+                </div>
+            </div>                
+         </div>
+        <div class="content np">                                        
+            <div class="controls-row">
+                <div class="col-md-3">Root Menu :</div>
+                <div class="col-md-9">
+                    <select name="module_root_id">
+                        <option value="0"> No Root Menu </option>
+                        {elemen_module}
+                    </select>
+                </div>
+            </div>                
+         </div>
+
+        <div class="footer">
+            <div class="side fr">
+                <div class="btn-group">
+                    <button class="btn btn-primary" type="submit">Submit</button>
+                </div>
+            </div>
+        </div>                                    
+     </div> 
+</form>
+<!-- END form -->
+<!-- BEGIN detail -->
+
+<form action="index.php?appid=admin&sub=aplikasi" method="post">
+<input type="hidden" name="id" value="{id}">
+<input type="hidden" name="levelpriv" value="1" />
+<input type="hidden" name="actionPost" value="groupadd">
+
+            <div class="block">
+                <div class="head">
+                    <h2>Manajemen Menu / Aplikasi</h2>
+                </div>
+        
+                <div class="content np">                                        
+                    <div class="controls-row">
+                        <div class="col-md-3">Nama Menu :</div>
+                        <div class="col-md-9">{name}</div>
+                    </div>                
+                </div>
+                <div class="content np">                                        
+                    <div class="controls-row">
+                        <div class="col-md-3">Tampil di Menu :</div>
+                        <div class="col-md-9">{visibility}</div>
+                    </div>                
+                </div>
+                <div class="content np">                                        
+                    <div class="controls-row">
+                        <div class="col-md-3">Akses Publik :</div>
+                        <div class="col-md-9">{publicity}</div>
+                    </div>                
+                </div>
+                <div class="content np">                                        
+                    <div class="controls-row">
+                        <div class="col-md-3">Group yang ada :</div>
+                        <div class="col-md-9">
+                        	<select name="groupid">
+                        		{elemen_group}
+                           </select>
+   						</div>
+                    </div>                
+                </div>
+
+                <div class="footer">
+                    <div class="side fr">
+                        <div class="btn-group">
+                            <button class="btn btn-primary" type="submit" value="Tambah">Submit</button>
+                        </div>
+                    </div>
+                </div>                                    
+            </div>
+</form>
+<br />
+<a href="index.php?appid=admin&sub=aplikasi"><h4>Kembali Ke Manajemen Aplikasi</h4></a>
+<br />
+    <div class="block">        
+        <div class="head">
+            <h2>Group Yang Terdaftar</h2>
+        </div>
+        
+        <div class="content np table-sorting">
+
+            <table class="simple_sort" cellpadding="0" cellspacing="0" width="100%">
+            <thead>
+             <tr>
+              <th>Nama Group</th>
+              <th>Delete</th>
+             </tr>
+            </thead>
+            <tbody>
+            <!-- BEGIN elemen_member -->
+             <tr>
+              <td width="44%"><font face ="verdana,arial,helvetica" size="2">{groupname}</font></td>
+              <td width="20%" align="center">
+                {deleteLink}
+              </td>
+             </tr>
+            <!-- END elemen_member -->
+            </tbody>
+            </table>
+        </div>
+    </div>
+
+<!-- END detail -->
+
+	</div>
+</div>

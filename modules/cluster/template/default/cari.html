@@ -1,0 +1,92 @@
+<div class="row">
+	<div class="col-md-6">
+    
+    <form method="get" action="index.php">
+    <input type="hidden" name="appid" value="{appid}">
+    <div class="block">
+            <div class="head">
+                <h2>Pencarian</h2>
+            </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Name :</div>
+                    <div class="col-md-9">
+                        <input type="text" name="cari" class="form-control" value="{CARI}"/>
+                    </div>
+                </div>                
+             </div>
+
+            <div class="footer">
+                <div class="side fr">
+                    <div class="btn-group">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </div>
+            </div>                                    
+	</div>
+        
+    </form>
+    
+    {HASIL PENCARIAN}
+    <script language="Javascript">
+    <!--
+    document.form1.cari.focus();
+    -->
+    </script></font></font>
+    
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-12">
+    
+    
+    <div class="block">
+        <div class="head">
+            <h2>{MESSAGE} ({countTrx} Data)</h2>
+            <ul class="buttons">
+                <li><a href="index.php?appid={appid}&sub=add"><span class="i-plus-2"> Tambah data </span></a></li>
+            </ul>                                        
+        </div>
+        <div class="content np table-sorting">
+    <table class="simple_sort" cellpadding="0" cellspacing="0" width="100%">
+    <thead>
+      <tr> 
+        <th>ID</th>
+        <th>Name</th>
+<!--        <th>COA (2)</th>
+-->        <th>Remark</th>    
+        <th>Action</th>
+      </tr>
+    </thead> 
+    <tbody> 
+      <!-- BEGIN elemen -->
+      <tr class="{row}">
+        <td valign="top">{idDec}</td>
+        <td valign="top">{name}</td>
+<!--        <td valign="top">{coa2}</td>
+-->        <td valign="top">{remark}</td>
+        <td width="9%" valign="top" align="center">
+        	<a href="index.php?appid={appid}&sub=edit&id={id}" title="Edit"><i class="glyphicon glyphicon-pencil"></i></a>&nbsp;&nbsp;
+            <a href="index.php?appid={appid}&sub=delete&id={id}" title="Delete"><i class="glyphicon glyphicon-remove"></i></a></td>
+      </tr>
+      <!-- END elemen -->
+    </tbody>
+      <!-- BEGIN tidakada -->
+
+<!--
+      <tr>
+        <td class="cari" colspan="8" valign="top" align="center"><b>Tidak ada entri yang ditemukan.</b> </td>
+      </tr>
+-->
+      
+      <!-- END tidakada -->
+    </table>
+        </div>
+    </div>   
+        </div>
+    </div>   
+
+<!--
+<p class="cari" align="center">{paging}</p>
+-->

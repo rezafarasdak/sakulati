@@ -1,0 +1,96 @@
+<p>
+ <font face="arial,helvetica" size="4"><b>Administrasi Sistem</b></font>
+</p>
+<!-- BEGIN daftar -->
+<p align="center">
+ <font face="arial,helvetica" size="3"><b>Daftar Berita</b></font>
+</p><b>
+<table class="adminlist" cellpadding="3" cellspacing="0" border="0" width="100%">
+<tr>
+ <th class="title" align="center"><font face="verdana,arial,helvetica" size="2">Tanggal/Waktu</font></td>
+ <th class="title" align="center" width="35%">
+  <font face="verdana,arial,helvetica" size="2">Judul</font>
+ </td>
+ <th class="title"  align="center" width="60%">
+  <font face="verdana,arial,helvetica" size="2">Ringkasan</font>
+ </td>
+ <th class="title"  align="center">
+  <font face="verdana,arial,helvetica" size="2">Edit</font>
+ </td>
+ <th class="title"  align="center">
+  <font face="verdana,arial,helvetica" size="2">Hapus</font>
+ </td>
+</tr>
+<!-- BEGIN elemen -->
+<tr class="{row}">
+ <td>   <font face="verdana,arial,helvetica" size="1">{waktu}</font> </td>
+ <td width="35%">
+  <font face="verdana,arial,helvetica" size="1">{judul}</font>
+ </td>
+ <td width="60%">
+  <font face="verdana,arial,helvetica" size="1">{ringkasan}</font>
+ </td>
+ <td align="center">
+  <a href="index.php?appid=admin&sub=news&id={ID}&action=edit">
+   <img src="images/edit.png" border="0">
+  </a>
+ </td>
+ <td align="center">
+  <a href="index.php?appid=admin&sub=news&id={ID}&action=del">
+   <i class="i-cancel-2"></i>
+  </a>
+ </td>
+</tr>
+<!-- END elemen -->
+</table>
+<p align="center">
+ <font face="verdana,arial,helvetica" size="1">{paging}</font>
+</p>
+<p align="center"><a href="index.php?appid=admin&sub=news&action=new">
+ <img src="images/add.gif" border="0"><br>
+ <font face="verdana,arial,helvetica" size="2">Tambah Berita</font>
+</a></p>
+<!-- END daftar -->
+
+<!-- BEGIN form -->
+<form action="index.php?appid=admin&sub=news" method="post">
+<input type="hidden" name="action" value="{action}">
+<input type="hidden" name="id" value="{id}">
+<table border="1" bordercolor="#999999" width="90%" cellpadding="3" align="center" cellspacing="0" style="border-collapse:collapse">
+<tr>
+ <td colspan="2" align="center">
+  <font face="arial,helvetica" size="3">
+  <b>{action title} Berita</b>
+  </font>
+ </td>
+<tr>
+ <td align="right" valign="top">
+  <font face="verdana,arial,helvetica" size="2">Judul</font>
+ </td>
+ <td>
+  <input type="text" name="judul" size="50" value="{judul}"> </td>
+</tr>
+<tr>
+ <td align="right" valign="top">
+  <font face="verdana,arial,helvetica" size="2">Ringkasan</font>
+ </td>
+ <td>
+  <textarea name="ringkasan" cols="40" rows="3">{ringkasan}</textarea> </td>
+</tr>
+<tr>
+ <td align="right" valign="top">
+  <font face="verdana,arial,helvetica" size="2">Isi</font>
+ </td>
+ <td>
+  {isi} </td>
+</tr>
+<tr>
+ <td>&nbsp;</td>
+ <td>
+  <input type="submit" value="Simpan">&nbsp;
+  <input type="submit" name="batal" value="Batal"> </td>
+</tr>
+</table>
+</form>
+<!-- END form -->
+</b>

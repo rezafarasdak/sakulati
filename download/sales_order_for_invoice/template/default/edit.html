@@ -1,0 +1,164 @@
+<script type='text/javascript' src='js/custom.js'></script>
+    
+<form name="form1" id="formSalesOrder" method="post" action="index.php?appid={appid}&sub=update" onsubmit="return validateForm()">
+<input type="hidden" name="act" value="save">
+<input type="hidden" name="sub_total" value="{sub_total}" />
+<input type="hidden" name="tax" value="{tax}" />
+<input type="hidden" name="in_id" value="{id}" />
+<input type="hidden" name="editable" value="{editable}" />
+<input type="hidden" name="faktur" value="{faktur}" />
+<input type="hidden" name="currency" value="{currency}" />
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+            <div class="head">
+                <h2>{appName} {in_no_format}</h2>
+            </div>
+		</div>
+    </div>    
+    <div class="col-md-6">
+        <div class="block">
+            <div class="head">
+            </div>
+            <div class="content np">
+                <div class="controls-row">
+                    <div class="col-md-4">Sales Order:</div>
+                    <div class="col-md-8">{so_no_format}</div>
+                </div>
+                <div class="controls-row">
+                    <div class="col-md-4">Date:</div>
+                    <div class="col-md-8"><input type="text" name="date" class="validate[required] datepicker form-control" value="{date}"/></div>
+                </div>
+                <div class="controls-row">
+                    <div class="col-md-4">Due Date:</div>
+                    <div class="col-md-8"><input type="text" name="due_date" class="validate[required] datepicker form-control" value="{due_date}"/></div>
+                </div>
+                <div class="controls-row">
+                    <div class="col-md-4">Remark:</div>
+                    <div class="col-md-8"><input type="text" class="form-control" name="remark" value="{remark}"/></div>
+                </div>
+                <div class="controls-row">
+                    <div class="col-md-4">Area:</div>
+                    <div class="col-md-8">{lokasi}</div>
+                </div>
+                <div class="controls-row">
+                    <div class="col-md-4">Currency:</div>
+                    <div class="col-md-8">{currency} &nbsp; <i>{rate}</i></div>
+                </div>
+                <div class="controls-row">
+                    <div class="col-md-4">Di Pungut:</div>
+                    <div class="col-md-8">
+                    <select name="dipungut" class="validate[required] form-control">
+                        	<option value="">----- PILIH  -----</option>
+                            <option value="yes" {yesSeleted}}>Di Pungut</option>
+                            <option value="no" {noSeleted}>Tidak Di Pungut</option>
+                    </select>
+                    </div>
+                </div>
+            </div>
+        </div>        
+    </div>
+    <div class="col-md-6">
+        <div class="block">
+            <div class="head">
+            </div>
+            <div class="content np">
+                <div class="controls-row">
+                    <div class="col-md-4">Customer:</div>
+                    <div class="col-md-8">{customerPershName}</div>
+                </div>
+                <div class="controls-row">
+                    <div class="col-md-4">PIC:</div>
+                    <div class="col-md-8">{customerName}</div>
+                </div>
+                
+                <div class="controls-row">
+                    <div class="col-md-4">PO:</div>
+                    <div class="col-md-8">{customer_po}</div>
+                </div>
+                <div class="controls-row">
+                    <div class="col-md-4">PO Date:</div>
+                    <div class="col-md-8">{customer_po_date}</div>
+                </div>
+                <div class="controls-row">
+                    <div class="col-md-4">Sub Total:</div>
+                    <div class="col-md-8" align="right" id="subTotalAmount">{sub_total}</div>
+                </div>
+                <div class="controls-row">
+                    <div class="col-md-4">Tax:</div>
+                    <div class="col-md-8" align="right" id="taxAmount">{tax}</div>
+                </div>
+                <div class="controls-row">
+                    <div class="col-md-4">Other Amount:</div>
+                    <div class="col-md-8" align="right"><input type="text" class="form-control" name="otherAmount" value="{other_amount}" onchange="calculateInvoiceEdit();this.value=numeral(this.value).format('0,0.00')"/></div>
+                </div>
+                <div class="controls-row">
+                    <div class="col-md-4">Discount:</div>
+                    <div class="col-md-8"><input type="text" class="form-control" name="discount" value="{discount}" onchange="calculateInvoiceEdit();this.value=numeral(this.value).format('0,0.00')"/></div>
+                </div>                                        
+                <div class="controls-row">
+                    <div class="col-md-4">Total Amount:</div>
+                    <div class="col-md-8" align="right" id="totalAmount">{amount}</div>
+                </div>
+            </div>
+         </div>
+     </div>
+</div>
+
+<div class="row">                            
+    <div class="col-md-12">
+        
+        <div class="block">
+            <div class="head">
+                <h2>List Surat Jalan</h2>
+            </div>
+            <div class="content np">
+                <table class="" cellpadding="0" cellspacing="0" width="100%" id="addRowExample">
+                    <thead>
+                        <tr>
+                            <th width="5%"><b>No</b></th>
+                            <th>Delivery Order Number</th>
+                            <th width="15%" align="right">Amount</th>
+                            <th width="15%" align="right">Date</th>
+<!--                            <th width="15%" align="right">Action</th>
+-->                        </tr>
+                    </thead>
+                    <tbody>
+                      <!-- BEGIN sales_order_detail_ada -->
+                        <tr>
+                            <td valign="top">{no}</td>
+                            <td>{do_no_format}</td>
+                            <td align="right">{do_amount}</td>
+                            <td align="right">{date}</td>
+							<!--<td align="center">
+                        		{removeDO}
+                            </td>  -->                      
+                        </tr>
+                      <!-- END sales_order_detail_ada -->
+                      <!-- BEGIN sales_order_detail_tidakada -->
+                      <tr>
+                        <td colspan="5" valign="top" align="center"><b>Data Barang Tidak Boleh Di Edit, Karena Masih Ada Delivery Order Selanjutnya.</b> </td>
+                      </tr>
+                      <!-- END sales_order_detail_tidakada --> 
+                    </tbody>
+		    	</table>
+			</div>
+            <div class="footer">
+                <div class="side fr">
+                    <div class="btn-group">
+                        <button class="btn btn-primary" type="submit" id="submitHandling">Submit</button>
+                    </div>
+                </div>
+            </div>                                    
+
+     	</div>
+  	</div>
+</div>
+</form>
+<!-- BEGIN tidakada -->
+	
+    Data Tidak Di Temukan 
+    <br>
+    {MESSAGE}
+
+<!-- END tidakada -->

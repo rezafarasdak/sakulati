@@ -1,0 +1,122 @@
+[2016-05-05 17:42:06 704] [admin] [admin] Opening Index User
+[2016-05-05 17:42:06 704] [admin] [admin] Opening List User
+[2016-05-05 17:43:41 201] [admin] [admin] Opening Index User
+[2016-05-05 17:43:41 201] [admin] [admin] Opening List User
+[2016-05-05 17:44:05 875] [admin] [admin] Opening Index User
+[2016-05-05 17:45:04 929] [admin] [admin] Opening Index User
+[2016-05-05 17:45:04 930] [admin] [admin] Add User [operator_komang] Success
+[2016-05-05 17:45:04 930] [admin] [admin] Opening List User
+[2016-05-05 17:45:09 633] [admin] [admin] Opening Index User
+[2016-05-05 17:45:09 633] [admin] [admin] Opening Detail User [afa3] -> [60]
+[2016-05-05 17:45:14 41] [admin] [admin] Opening Index User
+[2016-05-05 17:45:14 42] [admin] [admin] Updating user group success
+[2016-05-05 17:45:14 42] [admin] [admin] Opening List User
+[2016-05-05 17:45:17 237] [admin] [admin] Opening List Group
+[2016-05-05 17:45:18 363] [admin] [admin] Opening Detail Group : 25 Store ID : 0
+[2016-05-05 17:45:18 365] [admin] [admin] Query : select * from user_group a join user b using(user_id) where  b.user_id = '60' and group_id = '25'
+[2016-05-05 17:45:22 502] [admin] [admin] Opening List Group
+[2016-05-05 17:45:32 607] [admin] [admin] Opening Index User
+[2016-05-05 17:45:32 607] [admin] [admin] Opening List User
+[2016-05-05 17:45:35 338] [admin] [admin] Opening Index User
+[2016-05-05 17:46:14 282] [admin] [admin] Opening Index User
+[2016-05-05 17:46:14 283] [admin] [admin] Add User [investor_ferry] Success
+[2016-05-05 17:46:14 283] [admin] [admin] Opening List User
+[2016-05-05 17:46:19 696] [admin] [admin] Opening Index User
+[2016-05-05 17:46:19 697] [admin] [admin] Opening Detail User [afa4] -> [61]
+[2016-05-05 17:46:26 485] [admin] [admin] Opening Index User
+[2016-05-05 17:46:26 485] [admin] [admin] Updating user group success
+[2016-05-05 17:46:26 485] [admin] [admin] Opening List User
+[2016-05-05 17:46:35 409] [admin] [admin] Opening List Group
+[2016-05-05 17:46:36 936] [admin] [admin] Opening Detail Group : 25 Store ID : 0
+[2016-05-05 17:46:36 938] [admin] [admin] Query : select * from user_group a join user b using(user_id) where  b.user_id = '61' and group_id = '25'
+[2016-05-05 17:46:38 508] [admin] [admin] Opening List Apps 
+[2016-05-05 17:46:47 161] [admin] [admin] Open Form Add Apps
+[2016-05-05 17:50:52 383] [admin] [admin] Open Form Add Apps
+[2016-05-05 17:50:53 545] [admin] [admin] Open Form Add Apps
+[2016-05-05 17:51:01 674] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 17:51:03 637] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 17:51:28 24] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 18:45:25 458] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 18:49:45 437] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 18:57:18 742] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 18:57:48 827] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 18:58:08 101] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 18:58:54 356] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 18:59:20 404] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 18:59:56 747] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 19:00:19 894] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 19:00:26 405] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 19:00:47 125] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 19:00:51 626] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 19:01:26 549] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 19:01:37 345] [admin] [admin] Opening List Apps 
+[2016-05-05 19:01:39 388] [admin] [admin] Open Form Add Apps
+[2016-05-05 19:02:55 178] [admin] [admin] Inserting New Apps
+[2016-05-05 19:02:55 179] [admin] [admin] Opening List Apps 
+[2016-05-05 19:03:01 154] [admin] [admin] Opening Detail Apps ID : [aaa4] = ID : 11
+[2016-05-05 19:03:03 960] [admin] [admin] Opening List Apps 
+[2016-05-05 19:03:05 760] [admin] [admin] Opening Detail Apps ID : [aba795] = ID : 244
+[2016-05-05 19:03:09 212] [admin] [admin] Insert Into Group Module Priv
+[2016-05-05 19:03:09 212] [admin] [admin] Opening List Apps 
+[2016-05-05 19:03:14 59] [admin] [admin] Opening Detail Apps ID : [aba795] = ID : 244
+[2016-05-05 19:03:18 93] [admin] [admin] Insert Into Group Module Priv
+[2016-05-05 19:03:18 93] [admin] [admin] Opening List Apps 
+[2016-05-05 19:06:14 18] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 19:06:14 874] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 19:06:15 585] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 19:06:15 795] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 19:06:38 254] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 19:06:58 110] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 19:06:59 181] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 19:06:59 905] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 19:07:00 68] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 19:07:00 237] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 19:07:18 731] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 19:07:19 391] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 19:08:43 763] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 19:08:44 677] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 19:08:45 346] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 19:09:19 708] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 19:09:20 525] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 19:09:20 941] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 19:57:23 447] [admin] [admin] Opening List Apps 
+[2016-05-05 19:57:28 21] [admin] [admin] Opening Detail Apps ID : [aba795] = ID : 244
+[2016-05-05 19:57:30 696] [admin] [admin] Opening List Apps 
+[2016-05-05 19:57:32 540] [admin] [admin] Open Form Add Apps
+[2016-05-05 19:58:00 656] [admin] [admin] Inserting New Apps
+[2016-05-05 19:58:00 656] [admin] [admin] Opening List Apps 
+[2016-05-05 19:58:03 71] [admin] [admin] Open Form Add Apps
+[2016-05-05 19:58:18 97] [admin] [admin] Inserting New Apps
+[2016-05-05 19:58:18 98] [admin] [admin] Opening List Apps 
+[2016-05-05 19:58:23 749] [admin] [admin] Opening List Group
+[2016-05-05 19:58:26 209] [admin] [admin] Opening Index User
+[2016-05-05 19:58:26 209] [admin] [admin] Opening List User
+[2016-05-05 19:58:27 967] [admin] [admin] Opening List Apps 
+[2016-05-05 19:58:33 356] [admin] [admin] Opening Detail Apps ID : [aba796] = ID : 245
+[2016-05-05 19:58:35 398] [admin] [admin] Insert Into Group Module Priv
+[2016-05-05 19:58:35 398] [admin] [admin] Opening List Apps 
+[2016-05-05 19:58:37 878] [admin] [admin] Opening Detail Apps ID : [aba796] = ID : 245
+[2016-05-05 19:58:42 497] [admin] [admin] Opening Index User
+[2016-05-05 19:58:42 497] [admin] [admin] Opening List User
+[2016-05-05 19:58:46 679] [admin] [admin] Opening Index User
+[2016-05-05 19:58:46 679] [admin] [admin] Opening List User
+[2016-05-05 19:58:47 814] [admin] [admin] Opening List Apps 
+[2016-05-05 19:58:50 728] [admin] [admin] Opening Detail Apps ID : [aba797] = ID : 246
+[2016-05-05 19:58:53 682] [admin] [admin] Insert Into Group Module Priv
+[2016-05-05 19:58:53 683] [admin] [admin] Opening List Apps 
+[2016-05-05 19:58:55 264] [admin] [admin] Opening Index User
+[2016-05-05 19:58:55 264] [admin] [admin] Opening List User
+[2016-05-05 19:58:59 3] [admin] [admin] Opening List Apps 
+[2016-05-05 19:59:06 638] [admin] [admin] Opening Detail Apps ID : [aba797] = ID : 246
+[2016-05-05 19:59:09 464] [admin] [admin] Insert Into Group Module Priv
+[2016-05-05 19:59:09 464] [admin] [admin] Opening List Apps 
+[2016-05-05 20:07:07 324] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 20:07:14 112] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 20:07:36 61] [admin] [admin] Opening List Apps 
+[2016-05-05 20:07:38 208] [admin] [admin] Open Form Add Apps
+[2016-05-05 20:08:54 328] [admin] [admin] Inserting New Apps
+[2016-05-05 20:08:54 328] [admin] [admin] Opening List Apps 
+[2016-05-05 20:11:37 621] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 21:14:17 384] [admin] [utama] select us.fullname as sender, u.fullname as receiver,o.* from open_ticket o join user u on o.receiver_user_id = u.user_id join user us on o.sender_user_id = us.user_id where (sender_user_id = 2 or receiver_user_id in (2,0)  or 1=1 ) and parent_ticket_number = '' and status not in ('c') order by date desc
+[2016-05-05 21:14:29 306] [admin] [lahan] Opening Index
+[2016-05-05 21:14:29 307] [admin] [lahan] Query [select * from cart_of_account_header  order by name]

@@ -1,0 +1,79 @@
+<div class="row">
+	<div class="col-md-7">
+
+        <form name="form1" method="get" action="index.php">
+        <input type="hidden" name="appid" value="admin_log">
+        <input type="hidden" name="statusCari" value="cari" />
+
+        <div class="block">
+            <div class="head">
+                <h2>Pencarian</h2>
+            </div>
+			<div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Cari</div>
+                    <div class="col-md-9">
+                        <input type="text" name="cari" size="30" value="{CARI}" class="form-control" >
+                    </div>
+                </div>                
+            </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Date :</div>
+                    <div class="col-md-3">
+                        <input type="text" name="dari" class="form-control datepicker" value="{dari}"/>
+                    </div>
+                    <div class="col-md-2"><span class="help-inline">sampai</span></div>
+                    <div class="col-md-3">
+                        <input type="text" name="sampai" class="form-control datepicker" value="{sampai}"/>
+                    </div>
+                </div>                
+            </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Berdasarkan</div>
+                    <div class="col-md-9">
+                        <select name="kolom_cari" class="form-control">
+                            <option value=""> Pilih Kategori </option>
+                            <option value="keterangan">Keterangan</option>
+                            <option value="ip_address">IP Address</option>
+                        </select> 
+                    </div>
+                </div>                
+            </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">User</div>
+                    <div class="col-md-9">
+                        <select name="id_cari_user" class="form-control">
+                            <option value="" selected="selected"> -- Semua -- </option>
+							{menuUser}
+                        </select>
+                    </div>
+                </div>                
+            </div>
+            
+
+            <div class="footer">
+                <div class="side fr">
+                    <div class="btn-group">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </div>
+            </div>             
+
+		</div>
+     </form>
+
+
+	</div>
+</div>
+{HASIL PENCARIAN}
+<script language="Javascript">
+<!--
+document.form1.cari.focus();
+-->
+</script>

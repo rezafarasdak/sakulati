@@ -1,0 +1,214 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="block">
+
+            <!-- BEGIN nonform -->
+            
+            <div class="block">
+                <div class="head">
+                    <h2>Administrasi User - Daftar User</h2>
+                    <ul class="buttons">
+                            <li><a href="index.php?appid={appid}&sub=user&action=new"><span class="i-plus-2"> Tambah </span></a></li>
+                    </ul>  
+                </div>
+                <div class="content np table-sorting">
+            
+                    <table class="simple_sort" cellpadding="0" cellspacing="0" width="100%">
+                    <thead>
+                     <tr>
+                      <th>No</th>
+                      <th>User Name</th>
+                      <th>Nama</th>
+                      <th>Email</th>
+                      <th>Lokasi</th>
+                      <th>Action</th>
+            <!--          <th>Hapus</th>-->
+                     </tr>
+                    </thead> 
+                    <tbody>
+                    <!-- BEGIN elemen -->
+                     <tr>
+                      <td>{no}</td>
+                      <td><a href="index.php?appid={appid}&sub=user&action=detail&id={id}">{username}</a></td>
+                      <td>{email}</td>
+                      <td>{fullname}</td>
+                      <td>{lokasi}</td>
+                      <td align="center">
+                            <a href="index.php?appid={appid}&sub=user&action=detail&id={id}"><i class="glyphicon glyphicon-search"></i></a>&nbsp;&nbsp;
+                            <a href="index.php?appid={appid}&sub=user&action=edit&id={id}"><i class="glyphicon glyphicon-pencil"></i></td>
+            <!--          <td align="center"><a href="index.php?appid={appid}&sub=user&action=del&id={id}"><i class="i-cancel-2"></i></td>-->
+                     </tr>
+                    <!-- END elemen -->
+                    </tbody>
+                    </table>
+                    
+                </div>
+            </div>   
+            <!-- END nonform -->
+            <!-- BEGIN form -->
+
+            <form action="index.php?appid={appid}&sub=user" method="post">
+            <input type="hidden" name="id" value="{id}">
+            <input type="hidden" name="actionPost" value="{action}">
+        
+            <div class="block">
+                <div class="head">
+                    <h2>{action title} User</h2>
+                </div>
+        
+                <div class="content np">                                        
+                    <div class="controls-row">
+                        <div class="col-md-3">Username :</div>
+                        <div class="col-md-9">
+                            <input type="text" name="username" class="form-control" value="{username}"/>
+                        </div>
+                    </div>                
+                 </div>
+    
+                <div class="content np">                                        
+                    <div class="controls-row">
+                        <div class="col-md-3">Nama Lengkap :</div>
+                        <div class="col-md-9">
+                            <input type="text" name="name" class="form-control" value="{name}"/>
+                        </div>
+                    </div>                
+                 </div>
+    
+                <div class="content np">                                        
+                    <div class="controls-row">
+                        <div class="col-md-3">E-Mail :</div>
+                        <div class="col-md-9">
+                            <input type="text" name="email" class="form-control" value="{email}"/>
+                        </div>
+                    </div>                
+                 </div>
+    
+                <div class="content np">                                        
+                    <div class="controls-row">
+                        <div class="col-md-3">Password :</div>
+                        <div class="col-md-9">
+                            <input type="password" name="password1" class="form-control" value=""/>
+                        </div>
+                    </div>                
+                 </div>
+    
+                <div class="content np">                                        
+                    <div class="controls-row">
+                        <div class="col-md-3">Password Re-Confirm :</div>
+                        <div class="col-md-9">
+                            <input type="password" name="password2" class="form-control" value=""/>
+                        </div>
+                    </div>                
+                 </div>
+    
+                <div class="content np">                                        
+                    <div class="controls-row">
+                        <div class="col-md-3">Lokasi :</div>
+                        <div class="col-md-9">
+                            <select name="lokasi_id" class="form-control">
+                                {menuLokasi}
+                            </select>
+                        </div>
+                    </div>                
+                 </div>
+    
+                <div class="footer">
+                    <div class="side fr">
+                        <div class="btn-group">
+                            <button class="btn btn-primary" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </div>                                    
+            </div>
+        </form>
+        <!-- END form -->
+        <!-- BEGIN detail -->
+            <form action="index.php?appid={appid}&sub=user" method="post">
+            <input type="hidden" name="id" value="{id}">
+            <input type="hidden" name="actionPost" value="groupadd">
+            
+        
+            <div class="block">
+                <div class="head">
+                    <h2>Management Hak Akses User</h2>
+                </div>
+        
+                <div class="content np">                                        
+                    <div class="controls-row">
+                        <div class="col-md-3">Username :</div>
+                        <div class="col-md-9">{username}</div>
+                    </div>                
+                 </div>
+    
+                <div class="content np">                                        
+                    <div class="controls-row">
+                        <div class="col-md-3">Nama :</div>
+                        <div class="col-md-9">{nama}</div>
+                    </div>                
+                 </div>
+    
+                <div class="content np">                                        
+                    <div class="controls-row">
+                        <div class="col-md-3">Lokasi :</div>
+                        <div class="col-md-9">{lokasi}</div>
+                    </div>                
+                 </div>
+    
+                <div class="content np">                                        
+                    <div class="controls-row">
+                        <div class="col-md-3">Email :</div>
+                        <div class="col-md-9">{email}</div>
+                    </div>                
+                 </div>
+    
+                <div class="content np">                                        
+                    <div class="controls-row">
+                        <div class="col-md-3">Group Yang Ada :</div>
+                        <div class="col-md-9"><select name="groupid">{elemen_group}</select></div>
+                    </div>                
+                 </div>
+    
+                <div class="footer">
+                    <div class="side fr">
+                        <div class="btn-group">
+                            <button class="btn btn-primary" value="Tambah" type="submit">Submit</button>
+                        </div>
+                    </div>
+                </div>                                    
+    
+            </div>
+            </form>
+            
+            <br />
+            <h4><a href="index.php?appid={appid}&sub=user"><i class="glyphicon glyphicon-arrow-left"></i> Kembali Ke Manajemen User</a></h4>
+            <br />
+            <div class="col-md-8">        
+                <div class="head">
+                    <h2>Group Yang Terdaftar dengan User {username}</h2>
+                </div>
+                
+                <div class="content np table-sorting">
+        
+                    <table class="simple_sort" cellpadding="0" cellspacing="0" width="100%">
+                    <thead>
+                     <tr>
+                      <th>Nama Group</th>
+                      <th>Delete</th>
+                     </tr>
+                    </thead>
+                    <tbody>
+                    <!-- BEGIN elemen_member -->
+                     <tr>
+                      <td ><font face ="verdana,arial,helvetica" size="2">{groupname} </font></td>
+                      <td align="center">{linkDelete}</td>
+                     </tr>
+                    <!-- END elemen_member -->
+                    </tbody>
+                    </table>
+                 </div>
+             </div>
+        <!-- END detail -->
+
+		</div>
+	</div>
+</div>

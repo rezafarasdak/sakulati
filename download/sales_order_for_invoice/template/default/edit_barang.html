@@ -1,0 +1,90 @@
+<script type='text/javascript' src='js/custom.js'></script>
+
+<div class="row">
+	<div class="col-md-12">
+
+<!-- BEGIN ada -->
+<form action="index.php?appid={appid}&sub=update_barang" method="post" name="form1" id="validate">
+<input type="hidden" name="id" value="{id}">
+
+        <div class="block">
+            <div class="head">
+                <h2>{appName}</h2>
+            </div>
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Delivery Order Number :</div>
+                    <div class="col-md-9">{do_no_format}</div>
+                </div>                
+             </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Nama Barang :</div>
+                    <div class="col-md-9">{nama_barang}</div>
+                </div>                
+             </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Quantity :</div>
+                    <div class="col-md-9"><input type="hidden" name="quantity" value="{quantity}" />{quantity}</div>
+                </div>                
+            </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Already Sent :</div>
+                    <div class="col-md-9"><input type="hidden" name="terkirim" value="{terkirim}" />{terkirim}</div>
+                </div>                
+            </div>
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Not Yet Sent :</div>
+                    <div class="col-md-9"><input type="text" class="validate[required,custom[integer],min[0],max[{maxDikirim}]] form-control" name="barang_dikirim" value="{dikirim}" onblur="calculate();"/></div>
+                </div>                
+            </div>
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Not Sent :</div>
+                    <div class="col-md-9"><input type="hidden" name="sisa" value="" /><div id="sisa">0</div></div>
+                </div>                
+            </div>
+
+            <div class="footer">
+                <div class="side fr">
+                    <div class="btn-group">
+                        <button class="btn btn-primary" type="submit" id="submitHandling">Submit</button>
+                    </div>
+                </div>
+            </div>                                    
+
+                
+        </div>
+
+</form>
+<!-- END ada -->
+<!-- BEGIN tidakada -->
+	
+
+<!-- END tidakada -->
+
+</div>
+</div>
+
+<script language="javascript">
+
+calculate();
+
+function calculate(){
+
+	var quantity = eval(document.form1.quantity.value);
+	var terkirim = eval(document.form1.terkirim.value);
+	var barang_dikirim = eval(document.form1.barang_dikirim.value);
+	var sisa = eval(quantity - barang_dikirim - terkirim);
+	
+	document.getElementById("sisa").innerHTML = sisa;
+}
+
+
+</script>

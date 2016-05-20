@@ -1,0 +1,438 @@
+<script>
+var postsubKasus = '{defaultSubKasus}';
+var postkasus = '{defaultMasterKasus}';
+
+var subKasus = '{subKasus}';
+var kasus = '{masterKasus}';
+</script>
+<script type="text/javascript" src="js/comboboxKasus.js"></script>
+
+<script>
+	$(function() {
+		$( "#datepicker" ).datepicker();
+		$( "#datepicker" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+//		$( "#datepicker" ).datepicker({defaultDate: "2012-05-10"});
+
+		$( "#datepicker2" ).datepicker();
+		$( "#datepicker2" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+
+		$( "#datepicker3" ).datepicker();
+		$( "#datepicker3" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+
+		$( "#datepicker4" ).datepicker();
+		$( "#datepicker4" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+
+		$( "#datepicker5" ).datepicker();
+		$( "#datepicker5" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+
+		$( "#datepicker6" ).datepicker();
+		$( "#datepicker6" ).datepicker( "option", "dateFormat", "yy-mm-dd" );
+		
+	});
+</script>
+
+<script language="Javascript">
+
+function validateForm()
+{
+	var no_sbp = document.penangkapan.no_sbp.value;
+	var tgl_sbp = document.penangkapan.tgl_sbp.value;
+	var tanggal_penindakan = document.penangkapan.tanggal_penindakan.value;
+	var lokasi_penindakan = document.penangkapan.lokasi_penindakan.value;
+	var penangkap = document.penangkapan.penangkap.value;
+	var pelaku = document.penangkapan.pelaku.value;
+	var uraian_jumlah_1 = document.penangkapan.uraian_jumlah_1.value;
+	var uraian_detail_1 = document.penangkapan.uraian_detail_1.value;
+	var uraian_pasal = document.penangkapan.uraian_pasal.value;
+	var uraian_modus = document.penangkapan.uraian_modus.value;
+	var perkiraan_nil_bar = document.penangkapan.perkiraan_nil_bar.value;
+	var potensi_kur_bar = document.penangkapan.potensi_kur_bar.value;
+
+	if (no_sbp == null || no_sbp == ""){
+ 	    alert("No SBP Tidak Boleh Kosong"); 
+		document.penangkapan.no_sbp.focus();
+		return false;
+	}
+	
+	if (tgl_sbp == null || tgl_sbp == ""){
+ 	    alert("Tanggal SBP Tidak Boleh Kosong"); 
+		document.penangkapan.tgl_sbp.focus();
+		return false;
+	}
+	
+	if (tanggal_penindakan == null || tanggal_penindakan == ""){
+ 	    alert("Tanggal Penindakan Tidak Boleh Kosong"); 
+		document.penangkapan.tanggal_penindakan.focus();
+		return false;
+	}
+	
+	if (lokasi_penindakan == null || lokasi_penindakan == ""){
+ 	    alert("Lokasi Penindakan Tidak Boleh Kosong"); 
+		document.penangkapan.lokasi_penindakan.focus();
+		return false;
+	}
+	
+	if (penangkap == null || penangkap == ""){
+ 	    alert("Penangkap Tidak Boleh Kosong"); 
+		document.penangkapan.penangkap.focus();
+		return false;
+	}
+
+	if (pelaku == null || pelaku == ""){
+ 	    alert("Pelaku Tidak Boleh Kosong"); 
+		document.penangkapan.pelaku.focus();
+		return false;
+	}
+	
+	if (uraian_jumlah_1 == null || uraian_jumlah_1 == ""){
+ 	    alert("Jumlah Uraian 1 Tidak Boleh Kosong"); 
+		document.penangkapan.uraian_jumlah_1.focus();
+		return false;
+	}
+	
+	if (uraian_detail_1 == null || uraian_detail_1 == ""){
+ 	    alert("Detail Uraian 1 Tidak Boleh Kosong"); 
+		document.penangkapan.uraian_detail_1.focus();
+		return false;
+	}
+	
+	if (uraian_pasal == null || uraian_pasal == ""){
+ 	    alert("Uraian Pasal Tidak Boleh Kosong"); 
+		document.penangkapan.uraian_pasal.focus();
+		return false;
+	}
+	
+	if (uraian_modus == null || uraian_modus == ""){
+ 	    alert("Uraian Modus Tidak Boleh Kosong"); 
+		document.penangkapan.uraian_modus.focus();
+		return false;
+	}
+	
+	if (perkiraan_nil_bar == null || perkiraan_nil_bar == ""){
+ 	    alert("Perkiraan Nilai Barang Tidak Boleh Kosong"); 
+		document.penangkapan.perkiraan_nil_bar.focus();
+		return false;
+	}
+	
+	if (potensi_kur_bar == null || potensi_kur_bar == ""){
+ 	    alert("Potensi Kurang Bayar Tidak Boleh Kosong"); 
+		document.penangkapan.potensi_kur_bar.focus();
+		return false;
+	}
+	
+	
+	var r=confirm("Pastikan data yang di input sudah benar, apa anda yakin?","Ya");
+	if (r==true){
+		return true;
+	}else{
+    	return false;
+	}
+	
+	return false;
+}
+
+</script>
+	
+<form action="index.php?appid=penangkapan&sub=edit" method="post" name="penangkapan" onsubmit="return validateForm()">
+<input type="hidden" name="act" value="update">
+<input type="hidden" name="id" value="{no_kasus}">
+<input type="hidden" name="jumUraian" value="{jumUraian}">
+<input type="hidden" name="countCheckBox" value="{countCheckBoxPasal}" />
+<table class="adminlist" border="1" bordercolor="#999999" width="90%" cellpadding="3" align="center" cellspacing="0" style="border-collapse:collapse">
+ <tr class="row0">
+  <th class="title" colspan="2" align="center">
+   <font face ="arial,helvetica" size="5" color="#222"><b>EDIT DATA Penindakan</b></font>
+  </th>
+ </tr>
+ 	<tr class="row1">	
+		<td colspan="2" class="cari" align="center"><b>&nbsp;</b></td>
+	</tr>
+
+	<tr class="row0">	
+		<td class="cari" width="30%" align="right"><b>Kantor / Kanwil</b></td>
+		<td width="70%">
+			<select name="id_kantor">
+				{menuKanwil}
+			</select>
+		</td>
+	</tr>
+	<tr class="row1">	
+		<td class="cari" width="30%" align="right"><b>Sumber Informasi</b></td>
+		<td width="70%">
+			<select name="id_sumberinformasi">
+				{menuSumberInformasi}
+			</select>
+		</td>
+	</tr>
+
+ 	<tr class="row0">	
+		<td colspan="2" class="cari" align="center"><b>&nbsp;</b></td>
+	</tr>    
+	<tr class="row1">	
+		<td colspan="2" class="cari" align="center"><b>SURAT BUKTI PENINDAKAN (SBP)	</b></td>
+	</tr>
+
+	<tr class="row0">	
+		<td class="cari" width="30%" align="right"><b>Nomor</b></td>
+		<td width="70%">
+			<input type="teks" name="no_sbp" value="{nosbp}" size="25"><font size="-4"><em> (*) Harap diisi dengan lengkap Nomor SBP ,berdasarkan penomoran dinas. <br /> Contoh 01/KPU.01/BD.0904/2011 </em></font>
+		</td>
+	</tr>
+	<tr class="row1">	
+		<td class="cari" width="30%" align="right"><b>Tanggal</b></td>
+		<td width="70%">
+			<input type="teks" name="tgl_sbp" value="{tgl_sbp}" size="10" id="datepicker">
+		</td>
+	</tr>
+   	<tr>
+    	<td colspan="2">  
+        	<table border="1" bordercolor="#999999" align="center" width="90%" style="border-collapse:collapse">
+               	<tr class="row0">
+                	<td><b>No LPTP</b></td>
+                    <td><input type="teks" name="no_lptp" value="{no_lptp}" size="25"></td>
+                    <td><b>Tanggal LPTP</b></td>
+                    <td><input type="teks" name="tgl_lptp" value="{tgl_lptp}" size="10" id="datepicker6"></td>
+                </tr>
+
+            	<tr class="row1">
+                	<td><b>No LTP</b></td>
+                    <td><input type="teks" name="no_ltp" value="{no_ltp}" size="25"></td>
+                    <td><b>Tanggal LTP</b></td>
+                    <td><input type="teks" name="tgl_ltp" value="{tgl_ltp}" size="10" id="datepicker2"></td>
+                </tr>
+            	<tr class="row0">
+                	<td><b>No LPHP</b></td>
+                    <td><input type="teks" name="no_lphp" value="{no_lphp}" size="25"></td>
+                    <td><b>Tanggal LPHP</b></td>
+                    <td><input type="teks" name="tgl_lphp" value="{tgl_lphp}" size="10" id="datepicker3"></td>
+                </tr>
+<!--            	<tr class="row0">
+                	<td><b>Tindakan</b></td>
+                    <td><select name="id_tindakan">
+                                    {menuTindakan}
+                                </select>
+                    </td>
+                    <td><b>Terhadap</b></td>
+                    <td>			<select name="id_terhadap">
+                                    {menuTerhadap}
+                                </select>
+                    </td>
+                </tr>-->
+            	                
+            </table>
+        </td>
+    </tr>
+	<tr class="row0">	
+		<td colspan="2" class="cari" align="center"><b>&nbsp;</b></td>
+	</tr>
+
+	<tr class="row1">	
+		<td class="cari" align="right"><b>Tanggal Penindakan</b></td>
+		<td>
+			<input type="teks" name="tanggal_penindakan" value="{tgl_penindakan}" size="10" id="datepicker4">
+		</td>
+	</tr>
+	<tr class="row0">	
+		<td class="cari" align="right"><b>Lokasi Penindakan</b></td>
+		<td>
+			<input type="teks" name="lokasi_penindakan" value="{lokasi}" size="">
+		</td>
+	</tr>
+	<tr class="row1">	
+		<td class="cari" align="right"><b>Penangkap</b></td>
+		<td>
+			<input type="teks" name="penangkap" value="{penangkap}" size="">
+		</td>
+	</tr>
+	<tr class="row0">	
+		<td class="cari" align="right"><b>Pelaku</b></td>
+		<td>
+			<input type="teks" name="pelaku" value="{pelaku}" size="40">
+		</td>
+	</tr>
+    <tr class="row1">
+        <td class="cari" align="right"><b>Uraian Penindakan</b></td>
+        <td colspan="3"><textarea name="ket_tindakan" cols="40">{ket_tindakan}</textarea></td>
+    </tr>
+	<tr class="row1">	
+		<td colspan="2" class="cari" align="center"><b>&nbsp;</b></td>
+	</tr>
+
+
+	<tr class="row0">	
+		<td colspan="2" class="cari" align="center"><b>URAIAN BARANG HASIL PENINDAKAN (BHP)</b></td>
+	</tr>
+	<tr class="row1">	
+		<td class="cari" width="30%" align="right"><b>Komoditi</b></td>
+		<td width="70%">
+			<select name="id_komoditi">
+				{menuKomoditi}
+			</select>
+		</td>
+	</tr>
+<!--    
+	<tr class="row0">	
+		<td class="cari" width="30%" align="right"><b>Kemasan</b></td>
+		<td width="70%">
+			<select name="id_kemasan">
+				{menuKemasan}
+			</select>
+		</td>
+	</tr>
+-->    
+	<tr class="row1">	
+		<td class="cari" align="right"><b>Jumlah Uraian Barang</b></td>
+		<td> {jumUraian} - <a href="index.php?appid=penangkapan&sub=addUraian&id={no_kasus}"> Tambah Uraian</a></td>
+	</tr>
+
+	<tr>
+    	<td colspan="2"><div id="rincianUraian">  
+              <table width="100%" border="1" cellpadding="1" cellspacing="1" bordercolor="#CCCCCC">
+				  <tr class="row1">
+				    <td valign="top">No</td>
+				    <td valign="top">Jumlah</td>
+				    <td valign="top">Kemasan</td>
+				    <td valign="top">Uraian</td>
+				    <td valign="top">Tools</td>
+				  </tr>
+				  <!-- BEGIN uraian_ada -->
+                <tr class="row1">
+                	<td>{no}</td>
+                	<td><input type="teks" name="uraian_jumlah_{no}" size="15" value="{jumlah}" /></td>
+                	<td><select name="uraian_kemasan_{no}">{menuKemasan}</select></td>                     
+                	<td><input type="teks" name="uraian_detail_{no}" size="40" value="{uraian_detail}" /></td>
+                	<td><input type="hidden" name="id_uraian_{no}" value="{id_uraian}" /><a href="index.php?appid=penangkapan&sub=deleteUraian&id={id_uraian}"> Delete </a></td>
+ 
+                </tr>
+				  <!-- END uraian_ada -->
+				  <!-- BEGIN uraian_tidakada -->
+				  <tr>
+				    <td class="cari" colspan="5" valign="top" align="center"><b>Tidak ada entri yang ditemukan.</b> </td>
+				  </tr>
+				  <!-- END uraian_tidakada -->
+            </table>
+        </div></td>
+    </tr>
+	<tr class="row1">	
+		<td colspan="2" class="cari" align="center"><b>&nbsp;</b></td>
+	</tr>
+
+	<tr class="row0">	
+		<td colspan="2" class="cari" align="center"><b>URAIAN PELANGGARAN</b></td>
+	</tr>
+
+	<tr class="row1">	
+		<td class="cari" width="30%" align="right"><b>Jenis Kasus</b></td>
+		<td width="70%">
+		<select id='kasusSelect' name='kasus' onchange='populateSubKasus()'>
+        </select>
+        
+        &nbsp; - &nbsp;
+        
+        <select id='subKasusSelect' name='uraian_jenis_kasus'>
+        </select>
+        <script type="text/javascript">initkasus('1'); </script>
+		</td>
+	</tr>
+	<tr class="row0">	
+		<td class="cari" width="30%" align="right"><b>Kode Pelanggaran / Pasal</b></td>
+		<td width="70%">
+            <div style="border:1px solid black;width:100%;height:150px;overflow:auto;">
+            {checkBoxPasal}
+            </div>
+		</td>
+	</tr>	
+<!--	<tr class="row0">	
+		<td class="cari" width="30%" align="right"><b>Kode Pelanggaran / Pasal</b></td>
+		<td width="70%">
+			<select name="id_pelanggaran">
+				{menuPasal}
+			</select>
+		</td>
+	</tr>	
+-->	<tr class="row1">	
+		<td class="cari" align="right"><b>Ketentuan Yang Di Langgar / Uraian Pasal</b></td>
+		<td>
+			<textarea name ="uraian_pasal">{pasal}</textarea>
+		</td>
+	</tr>
+	<tr class="row0">	
+		<td class="cari" align="right"><b>Uraian Modus</b></td>
+		<td>
+			<textarea name ="uraian_modus">{uraian_modus}</textarea>
+		</td>
+	</tr>
+	<tr class="row1">	
+		<td colspan="2" class="cari" align="center"><b>&nbsp;</b></td>
+	</tr>
+
+
+	<tr class="row0">	
+		<td class="cari" align="right"><b>Perkiraan Nilai Barang</b></td>
+		<td>
+			<input type="teks" name="perkiraan_nil_bar" value="{perkiraan_nil_bar}" size=""><font size="-4"><em> (*) Diisi dalam nilai rupiah (tanpa tanda Rp , tanpa penanda ratusan/ribuan dan tanpa penanda nilai decimal) Misalnya dalam menuliskan sepuluh juta rupiah adalah: 10000000 (BUKAN 10.000.000,00) </em></font>
+		</td>
+	</tr>
+	<tr class="row1">	
+		<td class="cari" align="right"><b>Potensi Kurang Bayar (Rp)</b></td>
+		<td>
+			<input type="teks" name="potensi_kur_bar" value="{potensi_kur_bar}" size=""><font size="-4"><em> (*) Diisi dalam nilai rupiah (tanpa tanda Rp , tanpa penanda ratusan/ribuan dan tanpa penanda nilai decimal) Misalnya dalam menuliskan sepuluh juta rupiah adalah: 10000000 (BUKAN 10.000.000,00) </em></font>
+		</td>
+	</tr>
+	<tr class="row0">	
+		<td class="cari" width="30%" align="right"><b>Status Pelanggaran</b></td>
+		<td width="70%">
+			<select name="status_pelanggaran">
+				{menuStatusPelanggaran}
+			</select>
+		</td>
+	</tr>	
+
+	<tr class="row1">	
+		<td colspan="2" class="cari" align="center"><b>TINDAK LANJUT</b></td>
+	</tr>
+	
+	<tr class="row0">	
+		<td class="cari" width="30%" align="right"><b>Status Tindak Lanjut</b></td>
+		<td width="70%">
+			<select name="id_tindaklanjut">
+				{menuTindakLanjut}
+			</select>
+		</td>
+	</tr>	
+	
+	<tr class="row1">	
+		<td class="cari" align="right"><b>Nomor Tindak Lanjut</b></td>
+		<td>
+			<input type="teks" name="nomor_tindaklanjut" value="{nomor_tindaklanjut}" size="">
+		</td>
+	</tr>
+	<tr class="row0">	
+		<td class="cari" align="right"><b>Tanggal Tindak Lanjut</b></td>
+		<td>
+			<input type="teks" name="tgl_tindaklanjut" value="{tgl_tindaklanjut}" size="10" id="datepicker5">
+		</td>
+	</tr>
+	<tr class="row1">	
+		<td colspan="2" class="cari" align="center"><b>&nbsp;</b></td>
+	</tr>
+	
+	<tr class="row0">	
+		<td class="cari" align="right"><b>Keterangan</b></td>
+		<td>
+			<textarea name="ket">{ket}</textarea>
+		</td>
+	</tr>
+
+	
+ <tr class="row1">
+  <td>&nbsp;</td>
+  <td>
+   <input type="submit" value="SIMPAN" id="submitHandling">
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   &nbsp;&nbsp;
+   <input type="reset" name="batal" value="Reset">  </td>
+ </tr>
+</table>
+</form>

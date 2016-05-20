@@ -1,0 +1,136 @@
+<div class="row">
+    
+    <div class="col-md-12">
+        
+        <div class="block">
+<!-- BEGIN ada -->
+            <form action="index.php?appid={appid}&sub=delete" method="post" onsubmit="return confirmBeforeDelete()">
+            <input type="hidden" name="id_delete" value="{idEnc}">
+            <input type="hidden" name="act" value="delete">
+
+            <div class="head">
+                <h2><span class="label label-danger">!!! DELETE Invoice Number : {in_no_format} </span></h2>
+            </div>
+            <div class="content invoice">
+                <h4>Summary</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Invoice Date:</strong> {date}</p>
+                        <p><strong>Sales Order Number:</strong> {so_no_format}</p>
+                        <p><strong>No Faktur:</strong> {faktur}</p>
+                        <p><strong>Currency:</strong> {currency}</p>
+                        <p><strong>Lokasi:</strong> {lokasi}</p>
+                        <p><strong>Status:</strong> <span class="label label-info">{status}</span></p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>Customer:</strong> {customerPershName}</p>
+                        <p><strong>Customer PIC:</strong> {customerName}</p>
+                        <p><strong>Customer PO:</strong> {customer_po}</p>
+                        <p><strong>Customer PO Date:</strong> {customer_po_date} </p>
+                        <p><strong>Term Of Payment:</strong> {customer_term_of_payment} Day</p>
+                        <p><strong>Remark:</strong> {remark}</p>
+                        <p>&nbsp;</p>
+                    </div>
+                </div>
+<!-- END ada -->            
+
+                <h4>Delivery Order List</h4>
+
+                <table cellpadding="0" cellspacing="0" width="100%" class="list">
+                    <thead>
+                        <tr>
+                            <th width="5%"><b>No</b></th>
+                            <th>Delivery Order Number</th>
+                            <th width="15%" align="right">Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+				<!-- BEGIN order_detail_ada -->
+                        <tr>
+                            <td>{no}</td>
+                            <td>{do_no_format}</td>
+                            <td align="right">{do_date}</td>
+                        </tr>
+                <!-- END order_detail_ada -->
+                <!-- BEGIN order_detail_tidakada -->    
+                        <tr>
+                            <td colspan="4">No Order Detail</td>
+                        </tr>               
+                <!-- END order_detail_tidakada -->                         
+                    </tbody>
+                </table>                                       
+
+                <h4>Sales Order List</h4>
+
+                <table cellpadding="0" cellspacing="0" width="100%" class="list">
+                    <thead>
+                        <tr>
+                            <th width="5%"><b>No</b></th>
+                            <th>Description</th>
+                            <th width="5%" align="right">Quantity</th>
+                            <th>Unit Price</th>
+                            <th>Extended Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+				<!-- BEGIN barang_detail_ada -->
+                        <tr>
+                            <td>{no}</td>
+                            <td>{nama_barang}</td>
+                            <td align="right">{quantity}</td>
+                            <td align="right">{unit_price}</td>
+                            <td align="right">{extended_price}</td>
+                        </tr>
+                <!-- END barang_detail_ada -->
+                <!-- BEGIN barang_detail_tidakada -->    
+                        <tr>
+                            <td colspan="4">No Order Detail</td>
+                        </tr>               
+                <!-- END barang_detail_tidakada -->                         
+                    </tbody>
+                </table>                                                                                                
+                <div class="row">
+                    <div class="col-md-9">
+                    </div>
+                    <div class="col-md-3">
+                        <div class="total">
+                        	<p align="right"><strong><span>Subtotal:&nbsp;&nbsp;</span> {sub_total}</strong></p>
+                        	<p align="right"><strong><span>Tax:&nbsp;&nbsp;&nbsp;&nbsp;</span> {tax}</strong></p>
+                        	<p align="right"><strong><span>Other Amount:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span> {other_charge}</strong></p>
+                        	<p align="right"><strong><span>Discount:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>- {discount}</strong></p>
+                            <div class="highlight" align="right">
+                                <strong><span>Total:</span>  {amount} <em>{currency}</em></strong>
+                            </div>
+                        </div>
+                    </div>                                            
+                </div>                                                         
+                
+            </div>
+
+
+            <div class="footer">
+                <div class="side fr">
+                    <div class="btn-group">
+                        <button class="btn btn-danger" type="submit" id="submitHandling">DELETE</button>
+                    </div>
+                </div>
+            </div>                                    
+            </form>
+        </div>
+        
+    </div>
+        
+</div>
+
+ <!-- BEGIN delete -->
+&nbsp;
+ <!-- END delete -->
+</table>
+
+<!-- BEGIN tidakada -->
+	
+    Data Tidak Di Temukan 
+    <br>
+    {MESSAGE}
+
+<!-- END tidakada -->

@@ -1,0 +1,155 @@
+<form name="form1" method="get" action="index.php">
+<input type="hidden" name="appid" value="{appid}">
+<input type="hidden" name="statusCari" value="cari">
+
+<div class="row">
+	<div class="col-md-6">        
+        <div class="block">
+            <div class="head">
+                <h2>Pencarian</h2>
+            </div>
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Value :</div>
+                    <div class="col-md-9">
+                        <input type="text" name="cari" class="form-control" value="{CARI}"/>
+                    </div>
+                </div>                
+            </div>
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Date :</div>
+                    <div class="col-md-3">
+                        <input type="text" name="dari" class="form-control datepicker" value=""/>
+                    </div>
+                    <div class="col-md-2"><span class="help-inline">sampai</span></div>
+                    <div class="col-md-3">
+                        <input type="text" name="sampai" class="form-control datepicker" value=""/>
+                    </div>
+                </div>                
+            </div>
+			<div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Kategori :</div>
+                    <div class="col-md-9">
+                        <select name="kolom_cari" class="form-control">
+                            <option value=""> Pilih Kategori </option>
+                            <option value="ticket_number">Ticket Number</option>
+                            <option value="subject">Subject</option>
+                            <option value="content">Content</option>
+                        </select>
+                    </div>
+                </div>                
+            </div>
+			<div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Pengirim :</div>
+                    <div class="col-md-9">
+                        <select name="id_cari_pengirim" class="form-control">
+                            <option value="">----- SEMUA -----</option>
+                            {menu_pengirim}
+                        </select>
+                    </div>
+                </div>                
+            </div>
+			<div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Penerima :</div>
+                    <div class="col-md-9">
+                        <select name="id_cari_penerima" class="form-control">
+                            <option value="">----- SEMUA -----</option>
+                            {menu_penerima}
+                        </select>
+                    </div>
+                </div>                
+            </div>
+			<div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Status Ticket :</div>
+                    <div class="col-md-9">
+                        <select name="id_cari_status" class="form-control">
+                            <option value="">----- SEMUA -----</option>
+                            <option value="o">Open</option>
+                            <option value="c">Closed</option>
+                            <option value="p">Pending</option>
+                        </select>
+                    </div>
+                </div>                
+            </div>
+			<div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Type Ticket :</div>
+                    <div class="col-md-9">
+                        <select name="id_cari_type" class="form-control">
+                            <option value="">----- SEMUA -----</option>
+                            <option value="l">Masalah Login</option>
+                            <option value="k">Koreksi Data</option>
+                            <option value="q">Pertanyaan</option>
+                            <option value="o">Lainnya</option>
+                        </select>
+                    </div>
+                </div>                
+            </div>
+            <div class="footer">
+                <div class="side fr">
+                    <div class="btn-group">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                    </div>
+                </div>
+            </div>             
+		</div>
+	</div>
+</div>
+</form>
+
+<div class="row">
+	<div class="col-md-12">
+        <div class="block">
+            <div class="head">
+                <h2>{MESSAGE} ({countTrx} Data)</h2>
+                <ul class="buttons">
+                	<li><a href="index.php?appid={appid}&sub=add"><span class="i-plus-2"> Tambah data </span></a></li>
+            	</ul> 
+            </div>
+            <div class="content np table-sorting">
+                <table class="simple_sort" cellpadding="0" cellspacing="0" width="100%">
+                <thead>
+                  <tr> 
+                    <th>NO</th>
+                    <th>Ticket Number</th>
+                    <th>Pengirim</th>
+                    <th>Penerima</th>
+                    <th>Subject</th>
+                    <th>Status</th>
+                    <th>Type</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <!-- BEGIN elemen -->
+                  <tr class="{row}">
+                    <td valign="top">{no}</td>
+                    <td valign="top"><b>{ticket_number}</b></td>
+                    <td valign="top"><b>{pengirim}</b></td>
+                    <td valign="top"><b>{penerima}</b></td>
+                    <td valign="top">{subject}</td>
+                    <td valign="top">{status}</td>
+                    <td valign="top">{type}</td>
+                    <td  width="12%" valign="top" align="center">
+                        <a href="index.php?appid={appid}&sub=detail&id={ticket_number}"><i class="glyphicon glyphicon-search"></i></a>
+					</td>
+                  </tr>
+                  <!-- END elemen -->
+                </tbody>
+                  <!-- BEGIN tidakada -->
+             
+                  <!-- END tidakada -->
+                </table>
+                <!--
+                <p class="cari" align="center">{paging}</p>
+                -->
+			</div>
+         </div>
+
+	</div>
+</div>

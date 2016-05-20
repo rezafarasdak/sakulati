@@ -1,0 +1,56 @@
+<div class="row">
+	<div class="col-md-12">
+        <form action="index.php?appid={appid}&sub=add" method="post">
+        <input type="hidden" name="act" value="add">
+        <div class="block">
+            <div class="head">
+                <h2>Tambah Data {appName}</h2>
+            </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Name :</div>
+                    <div class="col-md-9">
+                        <input type="text" name="name" class="form-control" value=""/>
+                    </div>
+                </div>                
+             </div>
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Email :</div>
+                    <div class="col-md-9">
+                        <input type="text" name="email" class="form-control" value=""/>
+                    </div>
+                </div>                
+             </div>
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Divisi :</div>
+                    <div class="col-md-9">
+                    	<select name="id_karyawan_divisi">
+                            {karyawan_divisi}
+                        </select>
+					</div>
+                </div>                
+             </div>
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Lokasi :</div>
+                    <div class="col-md-9">
+                    	<select name="id_lokasi">
+                            {lokasi}
+                        </select>
+					</div>
+                </div>                
+             </div>
+            <div class="footer">
+                <div class="side fr">
+                    <div class="btn-group">
+                        <button class="btn btn-primary" type="submit" id="submitHandling">Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+	</div>
+</div>
