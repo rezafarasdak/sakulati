@@ -52,23 +52,35 @@
     <table class="simple_sort" cellpadding="0" cellspacing="0" width="100%">
     <thead>
       <tr> 
-        <th>ID</th>
-        <th>Name</th>
-<!--        <th>COA (2)</th>
--->        <th>Remark</th>    
+        <th>No</th>
+        <th>Nama</th>
+        <th>Lahan</th>
+        <th>Jenis</th>
+        <th>Kordinat</th>    
+        <th>Luas</th>    
+        <th>Status</th>    
+        <th>Last Panen</th>    
+        <th>Jumlah Pohon</th>    
         <th>Action</th>
       </tr>
     </thead> 
     <tbody> 
       <!-- BEGIN elemen -->
-      <tr class="{row}">
-        <td valign="top">{idDec}</td>
+      <tr>
+        <td valign="top">{no}</td>
         <td valign="top">{name}</td>
-<!--        <td valign="top">{coa2}</td>
--->        <td valign="top">{remark}</td>
+        <td valign="top">{lahanutama}</td>
+        <td valign="top">{jenispertanian}</td>
+        <td valign="top">{kordinat}</td>
+        <td valign="top">{luas} M</td>
+        <td valign="top">{status}</td>
+        <td valign="top">{last_panen}</td>
+        <td valign="top">{jumlah_pohon}</td>
         <td width="9%" valign="top" align="center">
-        	<a href="index.php?appid={appid}&sub=edit&id={id}" title="Edit"><i class="glyphicon glyphicon-pencil"></i></a>&nbsp;&nbsp;
+        	<a href="index.php?appid={appid}&sub=edit&id={id}" title="Edit"><i class="glyphicon glyphicon-pencil"></i></a>
+        <!--    &nbsp;&nbsp;
             <a href="index.php?appid={appid}&sub=delete&id={id}" title="Delete"><i class="glyphicon glyphicon-remove"></i></a></td>
+        -->
       </tr>
       <!-- END elemen -->
     </tbody>

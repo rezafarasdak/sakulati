@@ -10,11 +10,12 @@ $storeId = $user['store_id'];
 
 $id = $objek->dec($_POST['id']);
 $name = $_POST['name'];
-$remark = $_POST['remark'];
+$status = $_POST['status'];
+$latitude_longtitude = $_POST['latitude_longtitude'];
 $objek->debugLog("Updating..");
 
 if (isset($id) && ($id != "")) {
-	$sql = "update lahan set name = '".$name."', remark = '".$remark."' where id = ".$id;
+	$sql = "update lahan set name = '".$name."', latitude_longtitude = '".$latitude_longtitude."', status = '".$status."' where id = ".$id;
 	$objek->debugLog("Query [".$sql."]");
 
 	$rs=$q->Execute($sql);

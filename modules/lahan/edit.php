@@ -31,7 +31,17 @@ if (isset($id) && ($id != "")) {
 		while(!$rs->EOF) {
 			$t->set_var("id", $objek->enc($rs->fields['id']));
 			$t->set_var("name", $rs->fields['name']);
-			$t->set_var("remark", $rs->fields['remark']);
+			$t->set_var("latitude_longtitude", $rs->fields['latitude_longtitude']);
+			$t->set_var("status", $rs->fields['status']);
+			
+			if($rs->fields['status'] == 1){
+				$t->set_var("ActiveSelected", "selected");				
+				$t->set_var("NotActiveSelected", "");				
+			}else{
+				$t->set_var("ActiveSelected", "");				
+				$t->set_var("NotActiveSelected", "selected");								
+			}
+			
 			$t->parse("hdl_ada", "ada", true);
 			$rs->MoveNext();
 		}

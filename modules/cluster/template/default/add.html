@@ -8,19 +8,6 @@
             </div>
             <div class="content np">                                        
                 <div class="controls-row">
-                    <div class="col-md-3">ID :</div>
-                    <div class="col-md-5">
-                        <input type="text" name="id" class="validate[required,minSize[2],maxSize[2]] form-control" maxlength="2" class="form-control" value=""/>
-                    </div>
-                    <div class="col-md-4">
-                        <span class="help-inline">Required, max size = 2</span>
-                    </div>
-                    
-                </div>                
-             </div>
-
-            <div class="content np">                                        
-                <div class="controls-row">
                     <div class="col-md-3">Name :</div>
                     <div class="col-md-9">
                         <input type="text" name="name" class="form-control" value=""/>
@@ -30,10 +17,10 @@
 
             <div class="content np">                                        
                 <div class="controls-row">
-                    <div class="col-md-3">Cart Of Account Header :</div>
+                    <div class="col-md-3">Lahan Utama :</div>
                     <div class="col-md-9">
-                    	<select name="id_cart_of_account_header" class="form-control">
-                            {cart_of_account_header}
+                    	<select name="id_lahanutama" class="form-control">
+                            {lahan_utama}
                         </select>
 					</div>
                 </div>                
@@ -41,9 +28,41 @@
 
             <div class="content np">                                        
                 <div class="controls-row">
-                    <div class="col-md-3">Remark :</div>
+                    <div class="col-md-3">Jenis Pertanian :</div>
                     <div class="col-md-9">
-                        <input type="text" name="remark" class="form-control" value=""/>
+                    	<select name="id_jenispertanian" class="form-control">
+                            {jenis_pertanian}
+                        </select>
+					</div>
+                </div>                
+             </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Status :</div>
+                    <div class="col-md-9">
+                        <select name="status" class="form-control">
+                        	<option value="0">Not Active</option>
+                            <option value="1" selected="selected">Active</option>
+                        </select>
+                    </div>
+                </div>                
+             </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Luas :</div>
+                    <div class="col-md-9">
+                        <input type="text" name="luas" class="form-control" value=""/>
+                    </div>
+                </div>                
+             </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Latitude Longtitude :</div>
+                    <div class="col-md-9">
+                        <input type="text" name="latitude_longtitude" class="form-control" value=""/>
                     </div>
                 </div>                
              </div>

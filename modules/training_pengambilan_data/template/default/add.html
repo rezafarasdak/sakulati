@@ -1,0 +1,226 @@
+
+
+        <form action="index.php?appid={appid}&sub=add" method="post" id="validate">
+        <input type="hidden" name="act" value="add">
+
+<div class="row">
+
+   	<div class="col-md-6">
+        <div class="block">
+            <div class="head">
+                <h2>Kondisi Daun</h2>
+            </div>
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Daun Muda :</div>
+                    <div class="col-md-9">
+                    	<select name="id_daun_muda" class="form-control">
+                            {kondisi_daun}
+                        </select>
+                    </div>
+                </div>                
+             </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Daun Tua :</div>
+                    <div class="col-md-9">
+                    	<select name="id_daun_tua" class="form-control">
+                            {kondisi_daun}
+                        </select>
+                    </div>
+                </div>                
+             </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Tanggal :</div>
+                    <div class="col-md-9">
+                    	<input type="text" name="date" class="validate[required] datepicker form-control" value=""/>
+                        <span class="help-block">Tanggal Pengambilan Data</span>
+                    </div>
+                </div>                
+             </div>
+
+                
+        </div>
+
+	</div>
+
+	<div class="col-md-6">
+        <div class="block">
+            <div class="head">
+                <h2> Data Pohon</h2>
+            </div>
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">ID Pohon :</div>
+                    <div class="col-md-9">{unique_code}</div>
+                </div>                
+             </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Titik Kordinat :</div>
+                    <div class="col-md-9">{kordinat}</div>
+                </div>                
+             </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Nama Klon :</div>
+                    <div class="col-md-9">{jenis_klon}</div>
+                </div>                
+             </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Umur :</div>
+                    <div class="col-md-9">{umur_pohon} Tahun</div>
+                </div>                
+             </div>
+                
+        </div>
+
+	</div>
+    
+    
+   	<div class="col-md-6">
+        <div class="block">
+            <div class="head">
+                <h2>Jumlah Bunga & Buah</h2>
+            </div>
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-4">Bunga :</div>
+                    <div class="col-md-8">
+                    	<input type="text" name="bunga" class="validate[required,custom[integer]] form-control" value=""/>
+                    </div>
+                </div>                
+             </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-4">Buah Kecil :</div>
+                    <div class="col-md-8">
+                    	<input type="text" name="buah_kecil" class="validate[required,custom[integer]] form-control" value=""/>
+                    </div>
+                </div>                
+             </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-4">Buah Dewasa :</div>
+                    <div class="col-md-8">
+                    	<input type="text" name="buah_dewasa" class="validate[required,custom[integer]] form-control" value=""/>
+                    </div>
+                </div>                
+             </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-4">Buah Siap Panen :</div>
+                    <div class="col-md-8">
+                    	<input type="text" name="buah_siap_panen" class="validate[required,custom[integer]] form-control" value=""/>
+                    </div>
+                </div>                
+             </div>
+                
+        </div>
+
+	</div>
+
+    
+   	<div class="col-md-6">
+        <div class="block">
+            <div class="head">
+                <h2>Kondisi Tanah</h2>
+            </div>
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">PH :</div>
+                    <div class="col-md-9">
+                    	<input type="text" name="ph" class="form-control" value=""/>
+                    </div>
+                </div>                
+             </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">BO :</div>
+                    <div class="col-md-9">
+                    	<input type="text" name="bo" class="form-control" value=""/>
+                    </div>
+                </div>                
+             </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">KTK :</div>
+                    <div class="col-md-9">
+                    	<input type="text" name="ktk" class="form-control" value=""/>
+                    </div>
+                </div>                
+             </div>
+        </div>
+	</div>
+
+
+
+   	<div class="col-md-8">
+        <div class="block">
+            <div class="head">
+                <h2>Kondisi Tanaman</h2>
+            </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Sehat :</div>
+                    <div class="col-md-9">
+                    	<input type="text" name="sehat" class="form-control" value=""/>
+                    </div>
+                </div>                
+             </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Pytoptora :</div>
+                    <div class="col-md-9">
+                    	<input type="text" name="pytoptora" class="form-control" value=""/>
+                    </div>
+                </div>                
+             </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">VSD :</div>
+                    <div class="col-md-9">
+                    	<input type="text" name="vsd" class="form-control" value=""/>
+                    </div>
+                </div>                
+             </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">PBK :</div>
+                    <div class="col-md-9">
+                    	<input type="text" name="pbk" class="form-control" value=""/>
+                    </div>
+                </div>                
+             </div>
+
+            <div class="footer">
+                <div class="side fr">
+                    <div class="btn-group">
+                        <button class="btn btn-primary" type="submit" id="submitHandling">Submit</button>
+                    </div>
+                </div>
+            </div>                                    
+        </div>
+	</div>
+
+
+
+</div>
+        </form>
+

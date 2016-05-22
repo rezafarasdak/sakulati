@@ -1,7 +1,7 @@
 <?
 # Inisialisasi
 $objek->init();
-$appName = "Management Lahan";
+$appName = "Cluster";
 $objek->setTitle($appName);
 
 $q = buatKoneksiDB();
@@ -45,7 +45,7 @@ $urut = $_GET['order'];
 if (isset($urut) && ($urut != "")) {
 	$order = " order by ".$urut;
 }else{
-	$order = " order by name";	
+	$order = " order by unique_code";	
 }
 
 
@@ -54,12 +54,22 @@ $cari = $_GET['cari'];
 if (isset($cari) && ($cari != "")) {
 	$t->set_var("CARI", $cari);
 	$t->set_var("MESSAGE", "Hasil pencarian : \"$cari\"");
-	$sql = "select * from lahan where type = 'M' and name like '%$cari%' ".$order;
-	$count_query = "select count(*) from lahan where type = 'M' and name like '%$cari%'";
+	$sql = "select p.*, l.name as lahan, jk.name as jenisklon from pohon p
+join lahan l on l.id = p.id_lahan
+join jenis_klon jk on jk.id = p.id_jenis_klon 
+where unique_code like '%$cari%' ".$order;
+	$count_query = "select count(*) from pohon p
+join lahan l on l.id = p.id_lahan
+join jenis_klon jk on jk.id = p.id_jenis_klon where unique_code like '%$cari%' ";
+
 }else{
 	$t->set_var("MESSAGE", "Seluruh Data");
-	$sql = "select * from lahan where type = 'M' ".$order;
-	$count_query = "select count(*) from lahan where type = 'M'";
+	$sql = "select p.*, l.name as lahan, jk.name as jenisklon from pohon p
+join lahan l on l.id = p.id_lahan
+join jenis_klon jk on jk.id = p.id_jenis_klon ".$order;
+	$count_query = "select count(*) from pohon p
+join lahan l on l.id = p.id_lahan
+join jenis_klon jk on jk.id = p.id_jenis_klon";
 }
 
 $objek->debugLog("Query [".$sql."]");
@@ -79,15 +89,15 @@ $objek->debugLog("Query [".$sql."]");
 		$pagenext = (($groupOffset+1)* $pageCount)+1;
 		$pageStart = ($groupOffset * $pageCount) + 1;
 		$pageEnd = ((($groupOffset+1) * $pageCount) > $numpages) ? $numpages : ($groupOffset+1) * $pageCount;
-		$strLinkPage = (($groupOffset*$pageCount) > 0) ? "<a href=\"index.php?appid=lahan&cari=$cari&order=$urut&page=". ($pageprev). "\">&lt;&lt;</a>&nbsp;" : '';
+		$strLinkPage = (($groupOffset*$pageCount) > 0) ? "<a href=\"index.php?appid=admin_cart_of_account_middle&cari=$cari&order=$urut&page=". ($pageprev). "\">&lt;&lt;</a>&nbsp;" : '';
 
 		for($i=$pageStart;$i<=$pageEnd;$i++) {
 			if ($i != $page) 
-				$strLinkPage .= "<a href=\"index.php?appid=lahan&cari=$cari&order=$urut&page=$i\">$i</a>&nbsp;";
+				$strLinkPage .= "<a href=\"index.php?appid=admin_cart_of_account_middle&cari=$cari&order=$urut&page=$i\">$i</a>&nbsp;";
 			else 
 				$strLinkPage .= "<b>$i</b>&nbsp;";
 		}
-		$strLinkPage .= ((($groupOffset+1)*$pageCount) < $numpages) ? "<a href=\"index.php?appid=lahan&cari=$cari&order=$urut&page=". ($pagenext). "\">&gt;&gt;</a>&nbsp;" : '';
+		$strLinkPage .= ((($groupOffset+1)*$pageCount) < $numpages) ? "<a href=\"index.php?appid=admin_cart_of_account_middle&cari=$cari&order=$urut&page=". ($pagenext). "\">&gt;&gt;</a>&nbsp;" : '';
 		$t->set_var('paging', $strLinkPage);
 	}
 	else 
@@ -110,12 +120,11 @@ if($show == "all"){
 			$t->set_var("id", $objek->enc($rs->fields['id']));
 			$t->set_var("no", $nomor);
 			$t->set_var("idDec", $rs->fields['id']);
-			$t->set_var("name", $rs->fields['name']);
+			$t->set_var("unique_code", $rs->fields['unique_code']);
+			$t->set_var("lahan", $rs->fields['lahan']);
+			$t->set_var("jenisklon", $rs->fields['jenisklon']);
 			$t->set_var("kordinat", $rs->fields['latitude_longtitude']);
-			$t->set_var("luas", $rs->fields['luas']);
-			$t->set_var("status", $arrayStatus[$rs->fields['status']]);
-			$t->set_var("last_panen", $rs->fields['terakhir_panen']);
-			$t->set_var("jumlah_cluster", $q->GetOne("select count(*) from lahan where type = 'C' and id_lahanutama = ".$rs->fields['id']));
+			$t->set_var("umur_pohon", $rs->fields['umur_pohon']);
 			$t->parse("hdl_elemen", "elemen", true);
 			$rs->MoveNext();
 		}

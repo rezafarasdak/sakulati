@@ -23,23 +23,19 @@ $storeId = $user['store_id'];
 
 $id = $objek->dec($_GET['id']);
 if (isset($id) && ($id != "")) {
-	$sql = "select * from lahan where id = '".$id."' limit 1";
+	$sql = "select * from pohon where id = ".$id."";
 	$objek->debugLog("Query [".$sql."]");
 	$rs = $q->Execute($sql);
 	if ($rs and !$rs->EOF) {
 		$t->set_var("MESSAGE", "Edit Data");
 		while(!$rs->EOF) {
 			$t->set_var("id", $objek->enc($rs->fields['id']));
-			$t->set_var("name", $rs->fields['name']);
-			$t->set_var("lahanutama", $rs->fields['lahanutama']);
-			$t->set_var("jenispertanian", $rs->fields['jenispertanian']);
+			$t->set_var("unique_code", $rs->fields['unique_code']);
 			$t->set_var("latitude_longtitude", $rs->fields['latitude_longtitude']);
-			$t->set_var("luas", $rs->fields['luas']);
-			$t->set_var("status", $arrayStatus[$rs->fields['status']]);
-			$t->set_var("last_panen", $rs->fields['terakhir_panen']);
+			$t->set_var("umur_pohon", $rs->fields['umur_pohon']);
 		
-			$id_lahan = $rs->fields['id_lahanutama'];
-			if ($rs2 = $q->Execute('select * from lahan where type = "M" order by name')) {
+			$id_lahan = $rs->fields['id_lahan'];
+			if ($rs2 = $q->Execute('select * from lahan where type = "C" and status = 1 order by name')) {
 				$option = '';
 				while (!$rs2->EOF) {
 					if ($rs2->fields['id'] == $id_lahan) $selected = 'selected';
@@ -48,21 +44,21 @@ if (isset($id) && ($id != "")) {
 					$rs2->MoveNext();
 				}
 			}
-			$t->set_var('lahan_utama', $option);
-			
-			$id_jenis_pertanian = $rs->fields['id_jenispertanian'];
-			if ($rs3 = $q->Execute('select * from jenis_pertanian order by name')) {
+			$t->set_var('lahan', $option);
+						
+			$id_jenis_klon = $rs->fields['id_jenis_klon'];
+			if ($rs3 = $q->Execute('select * from jenis_klon order by name')) {
 				$option = '';
 				while (!$rs3->EOF) {
-					if ($rs3->fields['id'] == $id_jenis_pertanian) $selected = 'selected';
+					if ($rs3->fields['id'] == $id_jenis_klon) $selected = 'selected';
 					else $selected = '';
 					$option .= '<option value="'.$rs3->fields['id'].'"'.$selected.'>'.$rs3->fields['name']."</option>\n";
 					$rs3->MoveNext();
 				}
 			}
-			$t->set_var('jenis_pertanian', $option);
+			$t->set_var('jenis_klon', $option);
 
-		$t->parse("hdl_ada", "ada", true);
+			$t->parse("hdl_ada", "ada", true);
 			$rs->MoveNext();
 		}
 	}else{

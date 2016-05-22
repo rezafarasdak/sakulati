@@ -6,25 +6,42 @@
             <div class="head">
                 <h2>Tambah Data {appName}</h2>
             </div>
-            
-
             <div class="content np">                                        
                 <div class="controls-row">
-                    <div class="col-md-3">Name :</div>
+                    <div class="col-md-3">Unique Code :</div>
                     <div class="col-md-9">
-                        <input type="text" name="name" class="form-control" value=""/>
+                        <input type="text" name="unique_code" class="form-control" value=""/>
                     </div>
                 </div>                
              </div>
 
             <div class="content np">                                        
                 <div class="controls-row">
-                    <div class="col-md-3">Status :</div>
+                    <div class="col-md-3">Cluster :</div>
                     <div class="col-md-9">
-                        <select name="status" class="form-control">
-                        	<option value="0">Not Active</option>
-                            <option value="1" selected="selected">Active</option>
+                    	<select name="id_lahan" class="form-control">
+                            {lahan}
                         </select>
+					</div>
+                </div>                
+             </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Jenis Klon :</div>
+                    <div class="col-md-9">
+                    	<select name="id_jenisklon" class="form-control">
+                            {jenis_klon}
+                        </select>
+					</div>
+                </div>                
+             </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Umur Pohon :</div>
+                    <div class="col-md-9">
+                        <input type="text" name="umur_pohon" class="form-control" value=""/>
                     </div>
                 </div>                
              </div>

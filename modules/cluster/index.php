@@ -1,7 +1,7 @@
 <?
 # Inisialisasi
 $objek->init();
-$appName = "Cart Of Account - 4";
+$appName = "Cluster";
 $objek->setTitle($appName);
 
 $q = buatKoneksiDB();
@@ -54,12 +54,25 @@ $cari = $_GET['cari'];
 if (isset($cari) && ($cari != "")) {
 	$t->set_var("CARI", $cari);
 	$t->set_var("MESSAGE", "Hasil pencarian : \"$cari\"");
-	$sql = "select * from cart_of_account_middle where name like '%$cari%' ".$order;
-	$count_query = "select count(*) from cart_of_account_middle where name like '%$cari%'";
+	$sql = "select l1.*, l2.name as lahanutama, jp.name as jenispertanian from lahan l1 
+join lahan l2 on l1.id_lahanutama = l2.id
+join jenis_pertanian jp on jp.id = l1.id_jenispertanian
+where l1.type = 'C' and name like '%$cari%' ".$order;
+	$count_query = "select count(*)  from lahan l1 
+join lahan l2 on l1.id_lahanutama = l2.id
+join jenis_pertanian jp on jp.id = l1.id_jenispertanian
+where l1.type = 'C' and name like '%$cari%' ";
+
 }else{
 	$t->set_var("MESSAGE", "Seluruh Data");
-	$sql = "select * from cart_of_account_middle ".$order;
-	$count_query = "select count(*) from cart_of_account_middle";
+	$sql = "select l1.*, l2.name as lahanutama, jp.name as jenispertanian from lahan l1 
+join lahan l2 on l1.id_lahanutama = l2.id
+join jenis_pertanian jp on jp.id = l1.id_jenispertanian
+where l1.type = 'C' ".$order;
+	$count_query = "select count(*)  from lahan l1 
+join lahan l2 on l1.id_lahanutama = l2.id
+join jenis_pertanian jp on jp.id = l1.id_jenispertanian
+where l1.type = 'C'";
 }
 
 $objek->debugLog("Query [".$sql."]");
@@ -107,12 +120,17 @@ if($show == "all"){
 		$count = 0;
 		while(!$rs->EOF) {
 			++$nomor;
-			$no++ % 2 ? $t->set_var('row', 'row0'):$t->set_var('row', 'row1');
 			$t->set_var("id", $objek->enc($rs->fields['id']));
+			$t->set_var("no", $nomor);
 			$t->set_var("idDec", $rs->fields['id']);
 			$t->set_var("name", $rs->fields['name']);
-			$t->set_var("coa2", $q->GetOne("select name from cart_of_account_header where id = ".$rs->fields['cart_of_account_header_id']));
-			$t->set_var("remark", $rs->fields['remark']);
+			$t->set_var("lahanutama", $rs->fields['lahanutama']);
+			$t->set_var("jenispertanian", $rs->fields['jenispertanian']);
+			$t->set_var("kordinat", $rs->fields['latitude_longtitude']);
+			$t->set_var("luas", $rs->fields['luas']);
+			$t->set_var("status", $arrayStatus[$rs->fields['status']]);
+			$t->set_var("last_panen", $rs->fields['terakhir_panen']);
+			$t->set_var("jumlah_pohon", $q->GetOne("select count(*) from objek where id_lahan = ".$rs->fields['id']));
 			$t->parse("hdl_elemen", "elemen", true);
 			$rs->MoveNext();
 		}

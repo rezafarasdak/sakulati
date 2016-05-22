@@ -1,7 +1,7 @@
 <div class="row">
 	<div class="col-md-6">
     
-    <form method="get" action="index.php" name="form1">
+    <form method="get" action="index.php">
     <input type="hidden" name="appid" value="{appid}">
     <div class="block">
             <div class="head">
@@ -37,9 +37,9 @@
     
 	</div>
 </div>
-
 <div class="row">
 	<div class="col-md-12">
+    
     
     <div class="block">
         <div class="head">
@@ -53,36 +53,46 @@
     <thead>
       <tr> 
         <th>No</th>
-        <th>Nama</th>
-        <th>Kordinat</th>    
-        <th>Luas</th>    
-        <th>Status</th>    
-        <th>Last Panen</th>    
-        <th>Jumlah Cluster</th>    
+        <th>Unique Code</th>
+        <th>Jenis</th>
+        <th>Lahan</th>
+        <th>Kordinat</th>
+        <th>Umur Pohon</th>    
         <th>Action</th>
       </tr>
     </thead> 
+    <tbody> 
       <!-- BEGIN elemen -->
-      <tr class="{row}">
+      <tr>
         <td valign="top">{no}</td>
-        <td valign="top">{name}</td>
+        <td valign="top">{unique_code}</td>
+        <td valign="top">{jenisklon}</td>
+        <td valign="top">{lahan}</td>
         <td valign="top">{kordinat}</td>
-        <td valign="top">{luas} M</td>
-        <td valign="top">{status}</td>
-        <td valign="top">{last_panen}</td>
-        <td valign="top">{jumlah_cluster}</td>
+        <td valign="top">{umur_pohon} Tahun</td>
         <td width="9%" valign="top" align="center">
         	<a href="index.php?appid={appid}&sub=edit&id={id}" title="Edit"><i class="glyphicon glyphicon-pencil"></i></a>
-      <!--      &nbsp;&nbsp;
+        <!--    &nbsp;&nbsp;
             <a href="index.php?appid={appid}&sub=delete&id={id}" title="Delete"><i class="glyphicon glyphicon-remove"></i></a></td>
-            -->
+        -->
       </tr>
       <!-- END elemen -->
+    </tbody>
       <!-- BEGIN tidakada -->
 
+<!--
+      <tr>
+        <td class="cari" colspan="8" valign="top" align="center"><b>Tidak ada entri yang ditemukan.</b> </td>
+      </tr>
+-->
+      
       <!-- END tidakada -->
     </table>
         </div>
     </div>   
- </div>
-</div>
+        </div>
+    </div>   
+
+<!--
+<p class="cari" align="center">{paging}</p>
+-->

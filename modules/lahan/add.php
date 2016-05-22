@@ -21,9 +21,10 @@ $act = $_POST['act'];
 if($act == "add"){
 	$id = $_POST['id'];
 	$name = $_POST['name'];
-	$remark = $_POST['remark'];
+	$status = $_POST['status'];
+	$latitude_longtitude = $_POST['latitude_longtitude'];
 
-	$sqlInsert = "insert into lahan (name,remark) values ('".$name."','".$remark."')";
+	$sqlInsert = "insert into lahan (name,type,status,latitude_longtitude) values ('".$name."','M','".$status."','".$latitude_longtitude."')";
 	$objek->userLog('Add '.$appName.' ['.$nama.'] Success');
 
 	$rs = $q->Execute($sqlInsert);

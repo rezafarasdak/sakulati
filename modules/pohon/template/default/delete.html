@@ -1,0 +1,59 @@
+<!-- BEGIN ada -->
+<div class="row">
+	<div class="col-md-7">
+    	<div class="block">
+            <div class="head">
+                <h2>!!! DELETE Data {appName}</h2>
+            </div>
+
+			<div class="content">
+                <div class="alert alert-warning">                
+                    <strong>Warning!</strong>  Pastikan Data Yang Ingin Di Hapus Adalah Data Yang Benar
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                </div>
+			</div>
+<form action="index.php?appid={appid}&sub=delete" method="post">
+<input type="hidden" name="id_delete" value="{id}">
+<input type="hidden" name="act" value="delete">
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">ID :</div>
+                    <div class="col-md-9">{idDec}</div>
+                </div>                
+             </div>
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Name :</div>
+                    <div class="col-md-9">{name}</div>
+                </div>                
+             </div>
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Remark :</div>
+                    <div class="col-md-9">{remark}</div>
+                </div>                
+             </div>
+
+
+            <div class="footer">
+                <div class="side fr">
+                    <div class="btn-group">
+                        <button class="btn btn-danger" type="submit" id="submitHandling">DELETE</button>
+                    </div>
+                </div>
+            </div>                                    
+
+</form>
+<!-- END ada -->
+<!-- BEGIN tidakada -->
+	
+    Data Tidak Di Temukan 
+    <br>
+    {MESSAGE}
+
+<!-- END tidakada -->
+
+		</div>
+	</div>
+</div>
