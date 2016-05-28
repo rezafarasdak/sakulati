@@ -81,63 +81,44 @@ if($act == "add"){
 	$pytoptora = $_POST['pytoptora'];
 	$pbk = $_POST['pbk'];
 	$vsd = $_POST['vsd'];
+	$sehat = $_POST['sehat'];
 
 	$exist = $q->GetOne("select id_pohon from objek where id_pohon = ".$id_pohon_int);
 
-	if ($exist === false) {
-		$sqlInsert = "INSERT INTO objek" .
-			"(" .
-			"`id_pohon`," .
-			"`date`," .
-			"`daun_tua`," .
-			"`daun_muda`," .
-			"`bunga`," .
-			"`buah_kecil`," .
-			"`buah_dewasa`," .
-			"`buah_siap_panen`," .
-			"`PH`," .
-			"`BO`," .
-			"`KTK`," .
-			"`sehat_status`," .
-			"`pytoptora`," .
-			"`pbk`," .
-			"`vsd_status`)" .
-			"VALUES" .
-			"(" .
-			"$id_pohon_int," .
-			"NOW()," .
-			"'$id_daun_tua'," .
-			"'$id_daun_muda'," .
-			"$bunga," .
-			"$buah_kecil," .
-			"$buah_dewasa," .
-			"$buah_siap_panen," .
-			"$ph," .
-			"$bo," .
-			"$ktk," .
-			"1," .
-			"$pytoptora," .
-			"$pbk," .
-			"$vsd)";
-	}
-	else {
-		$sqlInsert = "UPDATE objek SET " .
-			"`date` = NOW()," .
-			"`daun_tua` = '$id_daun_tua'," .
-			"`daun_muda` = '$id_daun_muda'," .
-			"`bunga` = $bunga," .
-			"`buah_kecil` = $buah_kecil," .
-			"`buah_dewasa` = $buah_dewasa," .
-			"`buah_siap_panen` = $buah_siap_panen," .
-			"`PH` = $ph," .
-			"`BO` = $bo," .
-			"`KTK` = $ktk," .
-			"`sehat_status` = 1," .
-			"`pytoptora` = $pytoptora," .
-			"`pbk` = $pbk," .
-			"`vsd_status` = $vsd" .
-			" WHERE id_pohon = ".$id_pohon_int;
-	}
+	$sqlInsert = "INSERT INTO objek" .
+		"(" .
+		"`id_pohon`," .
+		"`date`," .
+		"`daun_tua`," .
+		"`daun_muda`," .
+		"`bunga`," .
+		"`buah_kecil`," .
+		"`buah_dewasa`," .
+		"`buah_siap_panen`," .
+		"`PH`," .
+		"`BO`," .
+		"`KTK`," .
+		"`sehat_status`," .
+		"`pytoptora`," .
+		"`pbk`," .
+		"`vsd_status`)" .
+		"VALUES" .
+		"(" .
+		"$id_pohon_int," .
+		"NOW()," .
+		"'$id_daun_tua'," .
+		"'$id_daun_muda'," .
+		"$bunga," .
+		"$buah_kecil," .
+		"$buah_dewasa," .
+		"$buah_siap_panen," .
+		"$ph," .
+		"$bo," .
+		"$ktk," .
+		"$sehat," .
+		"$pytoptora," .
+		"$pbk," .
+		"$vsd)";
 
 	$rs = $q->Execute($sqlInsert);
 	if($rs){
