@@ -1,0 +1,54 @@
+<div class="row">
+	<div class="col-md-12">
+        <form action="index.php?appid={appid}&sub=add" method="post">
+        <input type="hidden" name="act" value="add">
+        <div class="block">
+            <div class="head">
+                <h2>Tambah Data {appName}</h2>
+            </div>
+            
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Name :</div>
+                    <div class="col-md-9">
+                        <input type="text" name="name" class="form-control" value=""/>
+                    </div>
+                </div>                
+             </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Status :</div>
+                    <div class="col-md-9">
+                        <select name="status" class="form-control">
+                        	<option value="0">Not Active</option>
+                            <option value="1" selected="selected">Active</option>
+                        </select>
+                    </div>
+                </div>                
+             </div>
+
+            <div class="content np">                                        
+                <div class="controls-row">
+                    <div class="col-md-3">Latitude Longtitude :</div>
+                    <div class="col-md-9">
+                        <input type="text" name="latitude_longtitude" class="form-control" value=""/>
+                    </div>
+                </div>                
+             </div>
+
+            <div class="footer">
+                <div class="side fr">
+                    <div class="btn-group">
+                        <button class="btn btn-primary" type="submit" id="submitHandling">Submit</button>
+                    </div>
+                </div>
+            </div>                                    
+
+                
+        </div>
+
+        </form>
+	</div>
+</div>
