@@ -19,11 +19,16 @@ $t->set_var("appName", "Cluster");
 $objek->debugLog("Opening Edit Form");
 
 $user = $objek->user->profil;
-$storeId = $user['store_id'];
+
+if($objek->isAdmin()){
+	$whereLahan = "";
+}else{
+	$whereLahan = " and id in (select id_lahan from lahan_role where id_user = ".$user[userid].")";
+}
 
 $id = $objek->dec($_GET['id']);
 if (isset($id) && ($id != "")) {
-	$sql = "select * from lahan where id = '".$id."' limit 1";
+	$sql = "select * from lahan where id = '".$id."' ".$whereLahan." limit 1";
 	$objek->debugLog("Query [".$sql."]");
 	$rs = $q->Execute($sql);
 	if ($rs and !$rs->EOF) {
@@ -37,6 +42,7 @@ if (isset($id) && ($id != "")) {
 			$t->set_var("luas", $rs->fields['luas']);
 			$t->set_var("status", $arrayStatus[$rs->fields['status']]);
 			$t->set_var("last_panen", $rs->fields['terakhir_panen']);
+			$t->set_var("jumlah_pohon", $rs->fields['jumlah_pohon']);
 		
 			$id_lahan = $rs->fields['id_lahanutama'];
 			if ($rs2 = $q->Execute('select * from lahan where type = "M" order by name')) {

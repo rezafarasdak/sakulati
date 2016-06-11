@@ -11,8 +11,10 @@ $t = buatTemplate();
 $t->set_file("handle_search_list", "cari.html");
 $t->set_block("handle_search_list", "elemen", "hdl_elemen");
 $t->set_block("handle_search_list", "tidakada", "hdl_empty");
+$t->set_block("handle_search_list", "add", "hdl_add");
 $t->set_var("hdl_empty", "");
 $t->set_var("hdl_elemen", "");
+$t->set_var("hdl_add", "");
 $t->set_var("HASIL PENCARIAN", "");
 $t->set_var("CARI", "");
 $t->set_var("hdl_new", "");
@@ -26,6 +28,14 @@ if(isset($_GET['new'])){
 }
 
 $user = $objek->user->profil;
+
+if($objek->isAdmin()){
+	$t->parse("hdl_add", "add", true);	
+	$whereLahan = "";
+}else{
+	$whereLahan = " and l1.id in (select id_lahan from lahan_role where id_user = ".$user[userid].")";
+}
+
 
 // PAGING
 $numRec = 3500;
@@ -49,6 +59,7 @@ if (isset($urut) && ($urut != "")) {
 }
 
 
+
 // Pencarian
 $cari = $_GET['cari'];
 if (isset($cari) && ($cari != "")) {
@@ -57,22 +68,22 @@ if (isset($cari) && ($cari != "")) {
 	$sql = "select l1.*, l2.name as lahanutama, jp.name as jenispertanian from lahan l1 
 join lahan l2 on l1.id_lahanutama = l2.id
 join jenis_pertanian jp on jp.id = l1.id_jenispertanian
-where l1.type = 'C' and name like '%$cari%' ".$order;
+where l1.type = 'C' ".$whereLahan." and name like '%$cari%' ".$order;
 	$count_query = "select count(*)  from lahan l1 
 join lahan l2 on l1.id_lahanutama = l2.id
 join jenis_pertanian jp on jp.id = l1.id_jenispertanian
-where l1.type = 'C' and name like '%$cari%' ";
+where l1.type = 'C' ".$whereLahan." and name like '%$cari%' ";
 
 }else{
 	$t->set_var("MESSAGE", "Seluruh Data");
 	$sql = "select l1.*, l2.name as lahanutama, jp.name as jenispertanian from lahan l1 
 join lahan l2 on l1.id_lahanutama = l2.id
 join jenis_pertanian jp on jp.id = l1.id_jenispertanian
-where l1.type = 'C' ".$order;
+where l1.type = 'C' ".$whereLahan." ".$order;
 	$count_query = "select count(*)  from lahan l1 
 join lahan l2 on l1.id_lahanutama = l2.id
 join jenis_pertanian jp on jp.id = l1.id_jenispertanian
-where l1.type = 'C'";
+where l1.type = 'C' ".$whereLahan."";
 }
 
 $objek->debugLog("Query [".$sql."]");
@@ -120,9 +131,13 @@ if($show == "all"){
 		$count = 0;
 		while(!$rs->EOF) {
 			++$nomor;
+
+			$realPohon = $q->GetOne("select count(*) from pohon p where p.id_lahan = ".$rs->fields['id']);
+
 			$t->set_var("id", $objek->enc($rs->fields['id']));
 			$t->set_var("no", $nomor);
 			$t->set_var("idDec", $rs->fields['id']);
+			$t->set_var("jumlah_pohon", $rs->fields['jumlah_pohon'].", Sampling ".$realPohon." Pohon");
 			$t->set_var("name", $rs->fields['name']);
 			$t->set_var("lahanutama", $rs->fields['lahanutama']);
 			$t->set_var("jenispertanian", $rs->fields['jenispertanian']);
@@ -130,7 +145,7 @@ if($show == "all"){
 			$t->set_var("luas", $rs->fields['luas']);
 			$t->set_var("status", $arrayStatus[$rs->fields['status']]);
 			$t->set_var("last_panen", $rs->fields['terakhir_panen']);
-			$t->set_var("jumlah_pohon", $q->GetOne("select count(*) from objek where id_lahan = ".$rs->fields['id']));
+//			$t->set_var("jumlah_pohon", );
 			$t->parse("hdl_elemen", "elemen", true);
 			$rs->MoveNext();
 		}

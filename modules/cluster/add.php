@@ -15,6 +15,10 @@ $t->set_var("appName", $appName);
 $user = $objek->user->profil;
 $storeId = $user['store_id'];
 
+if(!$objek->isAdmin()){
+	header("location:index.php?appid=".$_GET['appid']."&m=Permision Denied");
+}
+
 $t->set_file("handle", "add.html");
 
 $id_lahan = $_GET['id_lahan'];
@@ -53,8 +57,9 @@ if($act == "add"){
 	$id_lahanutama = $_POST['id_lahanutama'];
 	$status = $_POST['status'];
 	$latitude_longtitude = $_POST['latitude_longtitude'];
+	$jumlah_pohon = $_POST['jumlah_pohon'];
 	
-	$sqlInsert = "insert into lahan (name,latitude_longtitude,luas,id_jenispertanian,type,status,id_lahanutama) values ('".$name."','".$latitude_longtitude."','".$luas."','".$id_jenispertanian."','C','".$status."','".$id_lahanutama."')";
+	$sqlInsert = "insert into lahan (name,latitude_longtitude,luas,id_jenispertanian,type,status,id_lahanutama,jumlah_pohon) values ('".$name."','".$latitude_longtitude."','".$luas."','".$id_jenispertanian."','C','".$status."','".$id_lahanutama."', '".$jumlah_pohon."')";
 	$objek->userLog('Add '.$appName.' ['.$name.'] Success');
 
 	$rs = $q->Execute($sqlInsert);

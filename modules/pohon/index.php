@@ -26,6 +26,11 @@ if(isset($_GET['new'])){
 }
 
 $user = $objek->user->profil;
+if($objek->isAdmin()){
+	$whereLahan = "";
+}else{
+	$whereLahan = " and l.id in (select id_lahan from lahan_role where id_user = ".$user[userid].")";
+}
 
 // PAGING
 $numRec = 3500;
@@ -57,19 +62,19 @@ if (isset($cari) && ($cari != "")) {
 	$sql = "select p.*, l.name as lahan, jk.name as jenisklon from pohon p
 join lahan l on l.id = p.id_lahan
 join jenis_klon jk on jk.id = p.id_jenis_klon 
-where unique_code like '%$cari%' ".$order;
+where unique_code like '%$cari%' ".$whereLahan." ".$order;
 	$count_query = "select count(*) from pohon p
 join lahan l on l.id = p.id_lahan
-join jenis_klon jk on jk.id = p.id_jenis_klon where unique_code like '%$cari%' ";
+join jenis_klon jk on jk.id = p.id_jenis_klon where unique_code like '%$cari%' ".$whereLahan." ";
 
 }else{
 	$t->set_var("MESSAGE", "Seluruh Data");
 	$sql = "select p.*, l.name as lahan, jk.name as jenisklon from pohon p
 join lahan l on l.id = p.id_lahan
-join jenis_klon jk on jk.id = p.id_jenis_klon ".$order;
+join jenis_klon jk on jk.id = p.id_jenis_klon where 1=1 ".$whereLahan." ".$order;
 	$count_query = "select count(*) from pohon p
 join lahan l on l.id = p.id_lahan
-join jenis_klon jk on jk.id = p.id_jenis_klon";
+join jenis_klon jk on jk.id = p.id_jenis_klon where 1=1 ".$whereLahan." ";
 }
 
 $objek->debugLog("Query [".$sql."]");

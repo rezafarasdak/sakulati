@@ -95,6 +95,15 @@ $cara_kirim_array = array("take" => "Ambil Sendiri",
 $arrayStatus[0]="Not Active"; // Belum buat surat jalan
 $arrayStatus[1]="Active"; // Surat Jalan Sebagian
 
+$arraySehatStatus[0]="Sakit";
+$arraySehatStatus[1]="Sehat";
+
+$arrayVSDStatus[0]="Tidak Ada";
+$arrayVSDStatus[1]="Ada";
+
+$persentageBungakeBuahKecil = 6;
+$persentageBuahKecilkeBuahBesar = 90;
+$adminGroupID = 14;
 
 $perusahaan['name'] = "SAKULATI";
 $perusahaan['address'] = "JL.RAYA TENGAH RT.003/12 NO.15 GEDONG, PASAR REBO";

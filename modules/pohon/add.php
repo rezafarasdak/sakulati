@@ -17,8 +17,14 @@ $storeId = $user['store_id'];
 
 $t->set_file("handle", "add.html");
 
+if($objek->isAdmin()){
+	$whereLahan = "";
+}else{
+	$whereLahan = " and id in (select id_lahan from lahan_role where id_user = ".$user[userid].")";
+}
+
 $id_lahan = $_GET['id_lahan'];
-if ($rs = $q->Execute('select * from lahan where type = "C" and status = 1 order by name')) {
+if ($rs = $q->Execute('select * from lahan where type = "C" and status = 1 '.$whereLahan.' order by name')) {
 	$option = '';
 	while (!$rs->EOF) {
 		if ($rs->fields['id'] == $id_lahan) $selected = 'selected';

@@ -1,7 +1,7 @@
 
-
         <form action="index.php?appid={appid}&sub=add" method="post" id="validate">
         <input type="hidden" name="act" value="add">
+        <input type="hidden" name="id_pohon" value="{id_pohon}">
 
 <div class="row">
 
@@ -175,9 +175,9 @@
 
             <div class="content np">                                        
                 <div class="controls-row">
-                    <div class="col-md-3">Sehat :</div>
+                    <div class="col-md-3">Sehat ? :</div>
                     <div class="col-md-9">
-                    	<input type="text" name="sehat" class="form-control" value=""/>
+                        <input type="checkbox" name="sehat" value="1" class="ibutton"/>
                     </div>
                 </div>                
              </div>
@@ -195,7 +195,7 @@
                 <div class="controls-row">
                     <div class="col-md-3">VSD :</div>
                     <div class="col-md-9">
-                    	<input type="text" name="vsd" class="form-control" value=""/>
+                        <input type="checkbox" name="vsd" value="1" class="ibutton"/>
                     </div>
                 </div>                
              </div>

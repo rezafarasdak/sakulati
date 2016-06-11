@@ -15,11 +15,12 @@ $id_jenispertanian = $_POST['id_jenispertanian'];
 $id_lahanutama = $_POST['id_lahanutama'];
 $status = $_POST['status'];
 $latitude_longtitude = $_POST['latitude_longtitude'];
+$jumlah_pohon = $_POST['jumlah_pohon'];
 
 $objek->debugLog("Updating..");
 
 if (isset($id) && ($id != "")) {
-	$sql = "update lahan set name = '".$name."', luas = '".$luas."', id_jenispertanian = '".$id_jenispertanian."', status = '".$status."', id_lahanutama = '".$id_lahanutama."', latitude_longtitude = '".$latitude_longtitude."'  where id = ".$id;
+	$sql = "update lahan set name = '".$name."', luas = '".$luas."', id_jenispertanian = '".$id_jenispertanian."', status = '".$status."', id_lahanutama = '".$id_lahanutama."', latitude_longtitude = '".$latitude_longtitude."', jumlah_pohon = '".$jumlah_pohon."'  where id = ".$id;
 	$objek->debugLog("Query [".$sql."]");
 
 	$rs=$q->Execute($sql);

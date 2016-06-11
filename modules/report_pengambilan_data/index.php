@@ -1,7 +1,7 @@
 <?
 # Inisialisasi
 $objek->init();
-$appName = "Training Pengambilan Data";
+$appName = "Report Pengambilan Data";
 $objek->setTitle($appName);
 
 $q = buatKoneksiDB();
@@ -29,7 +29,7 @@ $user = $objek->user->profil;
 if($objek->isAdmin()){
 	$whereLahan = "";
 }else{
-	$whereLahan = " and l.id in (select id_lahan from lahan_role where id_user = ".$user[userid].")";
+	$whereLahan = " and l1.id in (select id_lahan from lahan_role where id_user = ".$user[userid].")";
 }
 
 // PAGING
@@ -50,7 +50,7 @@ $urut = $_GET['order'];
 if (isset($urut) && ($urut != "")) {
 	$order = " order by ".$urut;
 }else{
-	$order = " order by unique_code";	
+	$order = " order by name";	
 }
 
 
@@ -59,22 +59,34 @@ $cari = $_GET['cari'];
 if (isset($cari) && ($cari != "")) {
 	$t->set_var("CARI", $cari);
 	$t->set_var("MESSAGE", "Hasil pencarian : \"$cari\"");
-	$sql = "select p.*, l.name as lahan, jk.name as jenisklon from pohon p
-join lahan l on l.id = p.id_lahan
-join jenis_klon jk on jk.id = p.id_jenis_klon 
-where unique_code like '%$cari%' ".$whereLahan." ".$order;
-	$count_query = "select count(*) from pohon p
-join lahan l on l.id = p.id_lahan
-join jenis_klon jk on jk.id = p.id_jenis_klon where unique_code like '%$cari%' ".$whereLahan." ";
+	$sql = "select p.unique_code, l1.name as cluster, l2.name as lahanutama, jp.name as jenispertanian, o.* from objek o
+	join pohon p on p.id = o.id_pohon
+	join lahan l1 on l1.id = p.id_lahan
+	join lahan l2 on l1.id_lahanutama = l2.id
+	join jenis_pertanian jp on jp.id = l1.id_jenispertanian
+	where l1.type = 'C' ".$whereLahan." and l1.name like '%$cari%' ".$order;
+	$count_query = "select count(*)  from objek o
+	join pohon p on p.id = o.id_pohon
+	join lahan l1 on l1.id = p.id_lahan
+	join lahan l2 on l1.id_lahanutama = l2.id
+	join jenis_pertanian jp on jp.id = l1.id_jenispertanian
+	where l1.type = 'C' ".$whereLahan." and l1.name like '%$cari%' ";
 
 }else{
 	$t->set_var("MESSAGE", "Seluruh Data");
-	$sql = "select p.*, l.name as lahan, jk.name as jenisklon from pohon p
-join lahan l on l.id = p.id_lahan
-join jenis_klon jk on jk.id = p.id_jenis_klon where 1=1 ".$whereLahan." ".$order;
-	$count_query = "select count(*) from pohon p
-join lahan l on l.id = p.id_lahan
-join jenis_klon jk on jk.id = p.id_jenis_klon where 1=1 ".$whereLahan." ";
+	$sql = "select p.unique_code, l1.name as cluster, l2.name as lahanutama, jp.name as jenispertanian, o.* from objek o
+	join pohon p on p.id = o.id_pohon
+	join lahan l1 on l1.id = p.id_lahan
+	join lahan l2 on l1.id_lahanutama = l2.id
+	join jenis_pertanian jp on jp.id = l1.id_jenispertanian
+	where l1.type = 'C' ".$whereLahan."";
+
+	$count_query = "select count(*) from objek o
+	join pohon p on p.id = o.id_pohon
+	join lahan l1 on l1.id = p.id_lahan
+	join lahan l2 on l1.id_lahanutama = l2.id
+	join jenis_pertanian jp on jp.id = l1.id_jenispertanian
+	where l1.type = 'C' ".$whereLahan."";
 }
 
 $objek->debugLog("Query [".$sql."]");
@@ -126,10 +138,16 @@ if($show == "all"){
 			$t->set_var("no", $nomor);
 			$t->set_var("idDec", $rs->fields['id']);
 			$t->set_var("unique_code", $rs->fields['unique_code']);
-			$t->set_var("lahan", $rs->fields['lahan']);
-			$t->set_var("jenisklon", $rs->fields['jenisklon']);
+			$t->set_var("name", $rs->fields['cluster']);
+			$t->set_var("lahan_utama", $rs->fields['lahanutama']);
+			$t->set_var("siap_panen", $rs->fields['buah_siap_panen']);
+			$t->set_var("tgl_training", $rs->fields['date']);
+			$t->set_var("jenis_pertanian", $rs->fields['jenispertanian']);
 			$t->set_var("kordinat", $rs->fields['latitude_longtitude']);
-			$t->set_var("umur_pohon", $rs->fields['umur_pohon']);
+			$t->set_var("luas", $rs->fields['luas']);
+			$t->set_var("status", $arrayStatus[$rs->fields['status']]);
+			$t->set_var("last_panen", $rs->fields['terakhir_panen']);
+			$t->set_var("jumlah_pohon", $q->GetOne("select count(*) from objek where id_lahan = ".$rs->fields['id']));
 			$t->parse("hdl_elemen", "elemen", true);
 			$rs->MoveNext();
 		}

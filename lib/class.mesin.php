@@ -36,6 +36,8 @@ class objek extends mesin {
 		$this->debug_status = $GLOBALS['mainConf']['site']['debug'];
 		$this->encryptKey = $GLOBALS['mainConf']['site']['key'];
 		$this->print_folder_name = $GLOBALS['mainConf']['site']['print_folder_name'];
+		$this->admin_group_id = $GLOBALS['mainConf']['site']['admin_group_id'];
+		
 
 //		echo $this->debug;
 
@@ -521,6 +523,16 @@ class objek extends mesin {
 		return $string;
 	}
 	
+	function isAdmin(){
+		$this->debugLog("select count(*) from user_group where group_id in (".$this->admin_group_id.") and user_id = ".$this->user->uid());
+		$perms = $this->db->GetOne("select count(*) from user_group where group_id in (".$this->admin_group_id.") and user_id = ".$this->user->uid());
+		if($perms > 0 ){
+			return true;
+		}else{
+			return false;	
+		}
+	}
+
 	function checkDeletePermission(){
 	
 		$perms = $this->db->GetOne("select count(*) from groups where allow_delete is true and group_id in (select group_id from user_group where user_id = ".$this->user->uid().")");

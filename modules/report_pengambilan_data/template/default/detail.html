@@ -1,0 +1,78 @@
+<div class="row">
+    
+    <div class="col-md-12">
+        
+        <div class="block">
+<!-- BEGIN elemen -->
+
+            <div class="head">
+                <h2>Training Cluster {cluster} tanggal {date}</h2>
+                <div class="side fr">
+                    {deleteLink}&nbsp;&nbsp;&nbsp;
+                    {editLink}&nbsp;&nbsp;&nbsp;
+                    <a href="#"><button class="btn btn-info">Lihat Data Sebelumnya</button></a>&nbsp;&nbsp;&nbsp;
+                    <a href="#"><button class="btn btn-info">Lihat Data Setelahnya</button></a>
+                </div>
+            </div>
+            <div class="content invoice">
+                <h4>Summary</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Lahan: </strong>{lahanutama}</p>
+                        <p><strong>Cluster: </strong>{cluster}</p>
+                        <p><strong>Jenis Pertanian: </strong>{jenispertanian}</p>
+                        <p><strong>Klon: </strong>{klon}</p>
+                        <p><strong>Pengambilan Data: </strong>{date}</p>
+                        <p><strong>Siap Panen:</strong> <span class="label label-info">{siap_panen} buah</span></p>
+                        <p>&nbsp;</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>ID Pohon: </strong> {unique_code}</p>
+                        <p><strong>Kordinat: </strong>{kordinat}</p>
+                        <p><strong>Umur: </strong>{umur}</p>
+                        <p><strong>Daun Muda: </strong> {daun_muda}</p>
+                        <p><strong>Daun Tua: </strong> {daun_tua}</p>
+                        <p><strong>Sampling:</strong> Data Ini Mewakili <span class="label label-info">{jumlah_pohon} pohon</span></p>
+                    </div>
+                </div>
+                <h4>Jumlah Bunga & Kondisi Tanah</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Jumlah Bunga:</strong> {bunga}</p>
+                        <p><strong>Jumlah Buah Kecil: </strong>{buah_kecil}</p>
+                        <p><strong>Jumlah Buah Dewasa: </strong>{buah_dewasa}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p><strong>PH:</strong> {PH}</p>
+                        <p><strong>BO:</strong> {BO}</p>
+                        <p><strong>KTK:</strong> {KTK}</p>
+                        <p>&nbsp;</p>
+                    </div>
+                </div>
+                <h4>Kondisi Tanaman</h4>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>Sehat:</strong> {sehat}</p>
+                        <p><strong>Pytoptora: </strong>{pytoptora}</p>
+                        <p><strong>VSD: </strong>{vsd}</p>
+                        <p><strong>PBK: </strong>{pbk}</p>
+                    </div>
+                </div>
+<!-- END elemen -->            
+
+            </div>
+            
+        </div>
+        
+    </div>
+        
+</div>
+
+
+<!-- BEGIN tidakada -->
+	
+    Data Tidak Di Temukan 
+    <br>
+    {MESSAGE}
+
+<!-- END tidakada -->
