@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 22, 2016 at 12:40 PM
+-- Generation Time: Jun 12, 2016 at 03:49 AM
 -- Server version: 5.1.44
 -- PHP Version: 5.3.1
 
@@ -137,11 +137,6 @@ CREATE TABLE IF NOT EXISTS `detail_panen` (
 -- Dumping data for table `detail_panen`
 --
 
-INSERT INTO `detail_panen` (`id`, `id_panen`, `id_objek`, `add_data`) VALUES
-(1, 1, 2, '{"Beancount":10,"Fatcontain":50,"Shell":30}'),
-(2, 1, 4, '{"Beancount":5,"Fatcontain":70,"Shell":20}'),
-(3, 2, 12, '{"Beancount":7,"Fatcontain":60,"Shell":40}'),
-(4, 2, 13, '{"Beancount":5,"Fatcontain":80,"Shell":10}');
 
 -- --------------------------------------------------------
 
@@ -252,12 +247,21 @@ INSERT INTO `group_module_priv` (`group_id`, `module_id`, `priv`) VALUES
 (14, 4, 1),
 (14, 186, 1),
 (14, 11, 1),
+(29, 251, 1),
+(25, 245, 1),
+(25, 251, 1),
 (29, 112, 1),
 (29, 145, 1),
+(25, 250, 1),
+(25, 247, 1),
+(25, 161, 1),
+(14, 252, 1),
+(14, 251, 1),
+(14, 250, 1),
 (14, 246, 1),
 (25, 246, 1),
 (14, 245, 1),
-(25, 244, 1),
+(29, 250, 1),
 (14, 244, 1);
 
 -- --------------------------------------------------------
@@ -372,28 +376,49 @@ CREATE TABLE IF NOT EXISTS `lahan` (
   `status` tinyint(1) DEFAULT NULL,
   `id_lahanutama` int(11) DEFAULT NULL,
   `terakhir_panen` date DEFAULT NULL,
+  `jumlah_pohon` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_lahanutama` (`id_lahanutama`),
   KEY `id_jenispertanian` (`id_jenispertanian`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
 -- Dumping data for table `lahan`
 --
 
-INSERT INTO `lahan` (`id`, `name`, `latitude_longtitude`, `luas`, `id_jenispertanian`, `type`, `status`, `id_lahanutama`, `terakhir_panen`) VALUES
-(1, 'palundarmain1', '-0.902900, 119.848412', 1000.00, 1, 'M', 1, NULL, NULL),
-(2, 'palundarclus1', '-0.902900, 119.848412', 400.00, 1, 'C', 1, 1, '2016-01-19'),
-(3, 'palundarclus2', '-0.902900, 119.848412', 300.00, 1, 'C', 1, 1, '2015-10-08'),
-(4, 'palundarclus3', '-0.902900, 119.848412', 300.00, 1, 'C', 1, 1, '2015-12-05'),
-(5, 'paluzulmain1', '-0.903901, 119.848311', 300.00, 1, 'M', 1, NULL, '2016-01-05'),
-(6, 'palujaumain1', '-0.903901, 119.848311', 300.00, 1, 'M', 1, NULL, NULL),
-(7, 'palu jau cluter cemara', '-0.903901, 119.848311', 185.00, 1, 'C', 1, 6, '2015-12-12'),
-(8, 'palujauclus2', '-0.903901, 119.848311', 150.00, 1, 'C', 1, 6, '2015-11-12'),
-(9, 'Palu Utara', '-0.924900, 129.848412', NULL, NULL, 'M', 0, NULL, NULL),
-(11, 'Parung Tenggara', '-0.924955, 129.848412', NULL, NULL, 'M', 1, NULL, NULL),
-(12, 'Lewuimunding', '-0.924900, 129.848412', NULL, NULL, 'M', 1, NULL, NULL),
-(14, 'Inkopad Selatan', '-0.924900, 129.848412', 350.00, 1, 'C', 1, 12, NULL);
+INSERT INTO `lahan` (`id`, `name`, `latitude_longtitude`, `luas`, `id_jenispertanian`, `type`, `status`, `id_lahanutama`, `terakhir_panen`, `jumlah_pohon`) VALUES
+(1, 'palundarmain1', '-0.902900, 119.848412', 1000.00, 1, 'M', 1, NULL, NULL, 0),
+(2, 'palundarclus1', '-0.902900, 119.848412', 400.00, 1, 'C', 1, 1, '2016-01-19', 0),
+(3, 'palundarclus2', '-0.902900, 119.848412', 300.00, 1, 'C', 1, 1, '2015-10-08', 0),
+(4, 'palundarclus3', '-0.902900, 119.848412', 300.00, 1, 'C', 1, 1, '2015-12-05', 0),
+(5, 'paluzulmain1', '-0.903901, 119.848311', 300.00, 1, 'M', 1, NULL, '2016-01-05', 0),
+(6, 'palujaumain1', '-0.903901, 119.848311', 300.00, 1, 'M', 1, NULL, NULL, 0),
+(7, 'palu jau cluter cemara', '-0.903901, 119.848311', 185.00, 1, 'C', 1, 6, '2015-12-12', 0),
+(8, 'palujauclus2', '-0.903901, 119.848311', 150.00, 1, 'C', 1, 6, '2015-11-12', 0),
+(9, 'Palu Utara', '-0.924900, 129.848412', NULL, NULL, 'M', 0, NULL, NULL, 0),
+(11, 'Parung Tenggara', '-0.924955, 129.848412', 900.00, NULL, 'M', 1, NULL, NULL, 0),
+(12, 'Lewuimunding', '-0.924900, 129.848412', 350.00, NULL, 'M', 1, NULL, NULL, 0),
+(14, 'Inkopad Selatan', '-0.924900, 129.848412', 350.00, 1, 'C', 1, 12, NULL, 500),
+(15, 'Ciracas Subur 1', '-0.884900, 119.848412', 900.00, 1, 'C', 1, 11, NULL, 850);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `lahan_role`
+--
+
+CREATE TABLE IF NOT EXISTS `lahan_role` (
+  `id_user` int(11) NOT NULL,
+  `id_lahan` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `lahan_role`
+--
+
+INSERT INTO `lahan_role` (`id_user`, `id_lahan`) VALUES
+(60, 15),
+(60, 14);
 
 -- --------------------------------------------------------
 
@@ -411,7 +436,7 @@ CREATE TABLE IF NOT EXISTS `log` (
   `store_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`,`datetime`,`module_id`,`ip_address`,`keterangan`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=27 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=42 ;
 
 --
 -- Dumping data for table `log`
@@ -443,7 +468,22 @@ INSERT INTO `log` (`id`, `user_id`, `datetime`, `module_id`, `ip_address`, `kete
 (23, 2, '2016-05-22 01:22:25', 246, '::1', 'Update Pohon-1', 0),
 (24, 2, '2016-05-22 01:34:19', 246, '::1', 'Add Cluster [ISLL0001] Success', 0),
 (25, 2, '2016-05-22 01:35:02', 246, '::1', 'Add Cluster [ISLL0002] Success', 0),
-(26, 2, '2016-05-22 11:13:30', 1, '::1', 'Login Success', 0);
+(26, 2, '2016-05-22 11:13:30', 1, '::1', 'Login Success', 0),
+(27, 2, '2016-05-28 14:17:47', 1, '::1', 'Login Success', 0),
+(28, 2, '2016-06-02 22:59:26', 1, '::1', 'Login Success', 0),
+(29, 2, '2016-06-04 23:43:21', 1, '::1', 'Login Success', 0),
+(30, 2, '2016-06-05 00:02:14', 247, '::1', 'Add Training Pengambilan Data [] Success', 0),
+(31, 2, '2016-06-07 05:25:18', 1, '::1', 'Login Success', 0),
+(32, 2, '2016-06-07 05:29:41', 247, '::1', 'Add Training Pengambilan Data [2] Success', 0),
+(33, 2, '2016-06-09 05:12:29', 1, '::1', 'Login Success', 0),
+(34, 2, '2016-06-09 06:02:20', 247, '::1', 'Add Training Pengambilan Data [3] Success', 0),
+(35, 2, '2016-06-11 05:08:46', 1, '::1', 'Login Success', 0),
+(36, 2, '2016-06-11 05:17:34', 245, '::1', 'Update Cluster-14', 0),
+(37, 2, '2016-06-11 05:20:46', 245, '::1', 'Add Cluster [Ciracas Subur 1] Success', 0),
+(38, 2, '2016-06-12 00:43:38', 1, '::1', 'Login Success', 0),
+(39, 60, '2016-06-12 00:54:01', 1, '::1', 'Login Success', 0),
+(40, 60, '2016-06-12 02:09:52', 251, '::1', 'Logout Success', 0),
+(41, 61, '2016-06-12 02:09:58', 1, '::1', 'Login Success', 0);
 
 -- --------------------------------------------------------
 
@@ -519,7 +559,7 @@ CREATE TABLE IF NOT EXISTS `module` (
   `module_root_id` int(11) NOT NULL,
   PRIMARY KEY (`module_id`),
   UNIQUE KEY `mod_site` (`siteID`,`name`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=249 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=253 ;
 
 --
 -- Dumping data for table `module`
@@ -541,7 +581,11 @@ INSERT INTO `module` (`module_id`, `siteID`, `name`, `title`, `is_public`, `is_v
 (245, 3, 'cluster', 'Management Cluster', 0, 0, 1, NULL, 161),
 (246, 3, 'pohon', 'Management Pohon', 0, 0, 1, NULL, 161),
 (247, 3, 'training_pengambilan_data', 'Pengambilan Data', 0, 1, 0, 4, 0),
-(0, 3, 'Root', 'Root Menu', 0, 0, 0, 1, 0);
+(0, 3, 'Root', 'Root Menu', 0, 0, 0, 1, 0),
+(249, 3, 'pohon_sakit', 'Input Pohon Sakit', 0, 1, 0, NULL, 0),
+(250, 3, 'report', 'Report', 0, 1, 0, NULL, 0),
+(251, 3, 'report_pengambilan_data', 'Pengambilan Data', 0, 0, 1, NULL, 250),
+(252, 3, 'operator_lahan', 'Lahan Role', 0, 0, 1, NULL, 161);
 
 -- --------------------------------------------------------
 
@@ -550,7 +594,7 @@ INSERT INTO `module` (`module_id`, `siteID`, `name`, `title`, `is_public`, `is_v
 --
 
 CREATE TABLE IF NOT EXISTS `objek` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_pohon` int(11) NOT NULL,
   `date` date NOT NULL,
   `daun_tua` varchar(100) NOT NULL,
@@ -568,26 +612,16 @@ CREATE TABLE IF NOT EXISTS `objek` (
   `vsd_status` int(11) NOT NULL,
   `panen_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `objek`
 --
 
 INSERT INTO `objek` (`id`, `id_pohon`, `date`, `daun_tua`, `daun_muda`, `bunga`, `buah_kecil`, `buah_dewasa`, `buah_siap_panen`, `PH`, `BO`, `KTK`, `sehat_status`, `pytoptora`, `pbk`, `vsd_status`, `panen_id`) VALUES
-(1, 0, '0000-00-00', '', '', 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0),
-(2, 0, '0000-00-00', '', '', 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0),
-(3, 0, '0000-00-00', '', '', 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0),
-(4, 0, '0000-00-00', '', '', 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0),
-(5, 0, '0000-00-00', '', '', 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0),
-(6, 0, '0000-00-00', '', '', 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0),
-(7, 0, '0000-00-00', '', '', 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0),
-(8, 0, '0000-00-00', '', '', 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0),
-(9, 0, '0000-00-00', '', '', 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0),
-(10, 0, '0000-00-00', '', '', 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0),
-(11, 0, '0000-00-00', '', '', 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0),
-(12, 0, '0000-00-00', '', '', 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0),
-(13, 0, '0000-00-00', '', '', 0, 0, 0, 0, '', 0, 0, 0, 0, 0, 0, 0);
+(1, 3, '2016-06-03', '1', '1', 200, 13, 8, 8, '90', 100, 101, 0, 0, 0, 0, 0),
+(2, 2, '2016-06-22', '3', '2', 90, 10, 9, 7, '88,5', 10, 99, 0, 0, 0, 0, 0),
+(3, 3, '2016-05-04', '3', '2', 500, 10, 5, 6, '7', 9, 12, 1, 15, 23, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -735,6 +769,7 @@ CREATE TABLE IF NOT EXISTS `relation` (
   `id_user` int(11) DEFAULT NULL,
   `type` char(1) DEFAULT NULL,
   `id_petani` int(11) DEFAULT NULL,
+  `id_lahan` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `id_user` (`id_user`),
   KEY `id_petani` (`id_petani`)
@@ -744,13 +779,13 @@ CREATE TABLE IF NOT EXISTS `relation` (
 -- Dumping data for table `relation`
 --
 
-INSERT INTO `relation` (`id`, `id_user`, `type`, `id_petani`) VALUES
-(1, 1, 'I', 3),
-(2, 1, 'I', 4),
-(3, 2, 'I', 5),
-(4, 6, 'S', 3),
-(5, 7, 'S', 4),
-(6, 8, 'S', 5);
+INSERT INTO `relation` (`id`, `id_user`, `type`, `id_petani`, `id_lahan`) VALUES
+(1, 1, 'I', 3, 0),
+(2, 1, 'I', 4, 0),
+(3, 2, 'I', 5, 0),
+(4, 6, 'S', 3, 0),
+(5, 7, 'S', 4, 0),
+(6, 8, 'S', 5, 0);
 
 -- --------------------------------------------------------
 
@@ -852,10 +887,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`user_id`, `is_superuser`, `fullname`, `username`, `userpassword`, `is_active`, `email`, `lastlogin`, `ket`, `login_session_id`, `additional_info`, `lokasi_id`, `store_id`) VALUES
-(2, 1, 'Admin Name', 'admin', 'e10adc3949ba59abbe56e057f20f883e', 1, 'reza@indowebapps.com', '2016-05-22 11:13:30', NULL, 'ebe97e5015977b8c808b0b152bfbd988', NULL, 1, 0),
+(2, 1, 'Admin Name', 'admin', 'e10adc3949ba59abbe56e057f20f883e', 1, 'reza@indowebapps.com', '2016-06-12 00:43:38', NULL, 'ab786f46eb1331e2269c736182e18ed7', NULL, 1, 0),
 (41, 0, 'Reza Farasdak', 'admin_reza', 'e10adc3949ba59abbe56e057f20f883e', 1, 'rezafarasdak@yahoo.com', '2016-04-12 21:39:41', NULL, 'aebaa897b064bcf03c7f087551c6f4b8', '', 1, 0),
-(60, 0, 'I Komang Agus', 'operator_komang', 'e10adc3949ba59abbe56e057f20f883e', 1, 'komang@sakulati.id', '2016-05-05 17:45:04', NULL, NULL, '', 1, 0),
-(61, 0, 'Ferry Agustya Swastika', 'investor_ferry', 'e10adc3949ba59abbe56e057f20f883e', 1, 'ferry@sakulati.id', '2016-05-05 17:46:14', NULL, NULL, '', 1, 0),
+(60, 0, 'I Komang Agus', 'operator_komang', 'e10adc3949ba59abbe56e057f20f883e', 1, 'komang@sakulati.id', '2016-06-12 00:54:01', NULL, '55c571488debc285b3b6285754ddd86b', '', 1, 0),
+(61, 0, 'Ferry Agustya Swastika', 'investor_ferry', 'e10adc3949ba59abbe56e057f20f883e', 1, 'ferry@sakulati.id', '2016-06-12 02:09:58', NULL, '9d78be1589647a2fdf77789a3571a91e', '', 1, 0),
 (62, 0, 'Joko Supomo', 'Supomo', 'e10adc3949ba59abbe56e057f20f883e', 1, 'joko@gmail.com', '2016-05-22 00:13:24', NULL, NULL, '', 1, 0);
 
 -- --------------------------------------------------------
